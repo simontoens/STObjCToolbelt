@@ -1,4 +1,4 @@
 STToolbelt
 ==========
 
-Various more or less helpful utility classes
+Various more or less helpful utility classes.
