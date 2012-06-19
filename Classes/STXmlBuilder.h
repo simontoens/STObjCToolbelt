@@ -8,28 +8,35 @@
 @interface STXmlBuilder : NSObject
 
 /**
- * Add an element.
+ * Adds an element.
  */
-- (STXmlBuilder *)addElement:(NSString *)elementName;
+- (void)addElement:(NSString *)elementName;
 
 /**
- * Add an element with attributes.
+ * Adds an element with attributes.
  */
-- (STXmlBuilder *)addElement:(NSString *)elementName attributes:(NSDictionary *)attributes;
+- (void)addElement:(NSString *)elementName attributes:(NSArray *)attributes;
+
+/**
+ * Adds text data as an element child value: <e1>text</e1>.
+ */
+- (void)addValue:(NSString *)value;
 
 /**
  * Closes the current element.
  */
-- (STXmlBuilder *)closeElement;
+- (void)closeElement;
 
 /**
  * Closes all elements.
  */
-- (STXmlBuilder *)closeAllElements;
+- (void)closeAllElements;
 
 /**
  * The generated xml.
  */
 @property (nonatomic, strong, readonly) NSMutableString *xml;
+
+@property (nonatomic) BOOL prettyPrint;
 
 @end
