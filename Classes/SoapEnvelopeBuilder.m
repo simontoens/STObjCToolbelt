@@ -1,18 +1,18 @@
 //  Created by Simon Toens on 6/18/12.
 
-#import "STSoapEnvelopeBuilder.h"
+#import "SoapEnvelopeBuilder.h"
 
-@interface STSoapEnvelopeBuilder()
-@property (nonatomic, strong, readwrite) STXmlBuilder *xmlBuilder;
+@interface SoapEnvelopeBuilder()
+@property (nonatomic, strong, readwrite) XmlBuilder *xmlBuilder;
 @end
 
-@implementation STSoapEnvelopeBuilder
+@implementation SoapEnvelopeBuilder
 
 @synthesize xmlBuilder;
 
 - (id)init {
     if (self = [super init]) {
-        xmlBuilder = [[STXmlBuilder alloc] init];
+        xmlBuilder = [[XmlBuilder alloc] init];
         xmlBuilder.prettyPrint = NO;
         [xmlBuilder addElement:@"Envelope" attributes:[NSArray arrayWithObjects:@"xmlns", @"http://schemas.xmlsoap.org/soap/envelope", nil]];
     }

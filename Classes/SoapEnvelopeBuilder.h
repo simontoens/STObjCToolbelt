@@ -2,14 +2,13 @@
 
 #import <Foundation/Foundation.h>
 
-#import "STXmlBuilder.h"
+#import "XmlBuilder.h"
 
-@interface STSoapEnvelopeBuilder : NSObject
+@interface SoapEnvelopeBuilder : NSObject
 
 - (void)addHeader:(NSString *)sessionHeaderNamespace sessionId:(NSString *)sessionId;
 - (void)addBody;
 
-@property (nonatomic, strong, readonly) STXmlBuilder *xmlBuilder;
-
+@property (nonatomic, strong, readonly) XmlBuilder *xmlBuilder;
 
 @end
