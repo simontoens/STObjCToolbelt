@@ -18,7 +18,12 @@
 - (void)addElement:(NSString *)elementName attributes:(NSArray *)attributes;
 
 /**
- * Adds text data as an element child value: <e1>text</e1>.
+ * Adds an element with text data and closes the element, ie <e1>text</e1>.
+ */
+- (void)addElement:(NSString *)elementName value:(NSString *)value;
+
+/**
+ * Adds text data to the current element.
  */
 - (void)addValue:(NSString *)value;
 
@@ -31,6 +36,10 @@
  * Closes all elements.
  */
 - (void)closeAllElements;
+
+- (void)mark;
+
+- (void)closeElementsUntilMark;
 
 /**
  * The generated xml.

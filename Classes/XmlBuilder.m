@@ -5,6 +5,7 @@
 @interface XmlBuilder()
 @property (nonatomic, assign) BOOL configured;
 @property (nonatomic, strong) NSMutableArray *elementStack;
+@property (nonatomic, strong) NSMutableArray *markStack;
 @property (nonatomic, strong, readwrite) NSMutableString *xml;
 - (void)eol;
 - (void)indent;
@@ -18,11 +19,13 @@
 
 @synthesize configured;
 @synthesize prettyPrint;
+@synthesize markStack;
 @synthesize xml;
 
 - (id)init {
     if (self = [super init]) {
         elementStack = [[NSMutableArray alloc] init];
+        markStack = [[NSMutableArray alloc] init];
         xml = [[NSMutableString alloc] init];
     }
     return self;
@@ -34,6 +37,12 @@
 
 - (void)addElement:(NSString *)elementName attributes:(NSArray *)attributes {
     [self write:elementName attributes:attributes];
+}
+
+- (void)addElement:(NSString *)elementName value:(NSString *)value {
+    [self write:elementName attributes:nil];
+    [self addValue:value];
+    [self closeElement];
 }
 
 - (void)addValue:(NSString *)value {
@@ -53,6 +62,19 @@
 - (void)closeAllElements {
     while ([elementStack count] > 0) {
         [self closeElement];
+    }
+}
+
+- (void)mark {
+    [markStack addObject:[NSNumber numberWithInt:[elementStack count]]];
+}
+
+- (void)closeElementsUntilMark {
+    int elementCount = [elementStack count];
+    int mark = [[markStack lastObject] intValue];
+    [markStack removeLastObject];
+    for (int i = mark; i < elementCount; i++) {
+        [self closeElement];    
     }
 }
 
