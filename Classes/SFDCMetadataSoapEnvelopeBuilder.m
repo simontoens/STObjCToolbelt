@@ -92,12 +92,9 @@ static NSString* const kMetadataNamespace = @"http://soap.sforce.com/2006/04/met
     
     for (NSString *entityApiName in [packageTypes allKeys]) {
         [xmlBuilder addElement:@"types"];
-        NSMutableString* members = [[NSMutableString alloc] init];
         for (NSString* member in [packageTypes objectsForKey:entityApiName]) {
-            [members appendString:member];
-            [members appendString:@" "];
+            [xmlBuilder addElement:@"members" value:member];
         }
-        [xmlBuilder addElement:@"members" value:members];
         [xmlBuilder addElement:@"name" value:entityApiName];
     }
     [xmlBuilder closeElementsUntilMark];

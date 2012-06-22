@@ -37,8 +37,14 @@
  */
 - (void)closeAllElements;
 
+/**
+ * Set a mark at the current element.
+ */
 - (void)mark;
 
+/**
+ * Close elements until reaching a previously set mark.
+ */
 - (void)closeElementsUntilMark;
 
 /**
