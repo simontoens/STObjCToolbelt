@@ -2,15 +2,16 @@
 
 #import <Foundation/Foundation.h>
 
-// http://en.wikipedia.org/wiki/Multimap
+/**
+ * A one-to-many dictionary.
+ *
+ * http://en.wikipedia.org/wiki/Multimap
+ */
+@interface MultiDictionary : NSObject 
 
-@interface MultiDictionary : NSObject {
-    NSMutableDictionary *dict;
-}
-
-- (id)init;
-
-
+/**
+ * Add a mapping.
+ */
 - (void)setObject:(id)anObject forKey:(id)aKey;
 
 /**
@@ -28,6 +29,9 @@
  */
 - (void)removeValue:(id)aValue;
 
+/**
+ * Removes all mappings.
+ */
 - (void)removeAllObjects;
 
 /**
@@ -46,7 +50,7 @@
 - (BOOL)containsKey:(id)key;
 
 /**
- * Returns number of entries (keys, not values).
+ * Returns the number of mapped keys.
  */
 - (NSUInteger)count;
 

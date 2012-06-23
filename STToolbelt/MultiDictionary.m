@@ -4,9 +4,12 @@
 
 @interface MultiDictionary()
 - (NSMutableSet *)getSetForKey:(id)aKey;
+@property (nonatomic, strong) NSMutableDictionary *dict;
 @end
 
 @implementation MultiDictionary
+
+@synthesize dict;
 
 #pragma mark - Initializers
 
@@ -29,15 +32,6 @@
 
 - (BOOL)containsKey:(id)key {
     return [dict objectForKey:key] != nil;
-}
-
-- (NSMutableSet *)getSetForKey:(id)aKey {
-    NSMutableSet *set = [dict objectForKey:aKey];
-    if (!set) {
-        set = [[NSMutableSet alloc] init];
-        [dict setObject:set forKey:aKey];
-    }
-    return set;
 }
 
 - (void)removeValue:(id)aValue {
@@ -68,6 +62,17 @@
 
 - (NSUInteger)count {
     return [dict count];
+}
+
+#pragma mark - Private methods
+
+- (NSMutableSet *)getSetForKey:(id)aKey {
+    NSMutableSet *set = [dict objectForKey:aKey];
+    if (!set) {
+        set = [[NSMutableSet alloc] init];
+        [dict setObject:set forKey:aKey];
+    }
+    return set;
 }
 
 @end
