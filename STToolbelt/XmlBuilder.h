@@ -5,7 +5,7 @@
 /**
  * This is a braindead xml builder.
  */
-@interface XmlBuilder : NSObject
+@interface XMLBuilder : NSObject
 
 /**
  * Adds an element.

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE966BA415ABCCEC00F75774 /* XMLBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = BE966BA315ABCCEC00F75774 /* XMLBuilder.m */; };
 		BEB96A7C15ABC61C003C58F2 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEB96A7B15ABC61C003C58F2 /* SenTestingKit.framework */; };
 		BEB96A7D15ABC61C003C58F2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEB96A6315ABC61C003C58F2 /* UIKit.framework */; };
 		BEB96A7E15ABC61C003C58F2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEB96A6515ABC61C003C58F2 /* Foundation.framework */; };
@@ -14,10 +15,11 @@
 		BEB96A9415ABC6F3003C58F2 /* MultiDictionaryTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB96A9315ABC6F3003C58F2 /* MultiDictionaryTestCase.m */; };
 		BEB96A9C15ABC70C003C58F2 /* MultiDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB96A9715ABC70C003C58F2 /* MultiDictionary.m */; };
 		BEB96A9D15ABC70C003C58F2 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB96A9915ABC70C003C58F2 /* NSData+Base64.m */; };
-		BEB96A9E15ABC70C003C58F2 /* XmlBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB96A9B15ABC70C003C58F2 /* XmlBuilder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BE966BA215ABCCEC00F75774 /* XMLBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLBuilder.h; path = ../../STToolbelt/XMLBuilder.h; sourceTree = "<group>"; };
+		BE966BA315ABCCEC00F75774 /* XMLBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLBuilder.m; path = ../../STToolbelt/XMLBuilder.m; sourceTree = "<group>"; };
 		BEB96A6315ABC61C003C58F2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BEB96A6515ABC61C003C58F2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BEB96A6715ABC61C003C58F2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -31,8 +33,6 @@
 		BEB96A9715ABC70C003C58F2 /* MultiDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MultiDictionary.m; path = ../../STToolbelt/MultiDictionary.m; sourceTree = "<group>"; };
 		BEB96A9815ABC70C003C58F2 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+Base64.h"; path = "../../STToolbelt/NSData+Base64.h"; sourceTree = "<group>"; };
 		BEB96A9915ABC70C003C58F2 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+Base64.m"; path = "../../STToolbelt/NSData+Base64.m"; sourceTree = "<group>"; };
-		BEB96A9A15ABC70C003C58F2 /* XmlBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XmlBuilder.h; path = ../../STToolbelt/XmlBuilder.h; sourceTree = "<group>"; };
-		BEB96A9B15ABC70C003C58F2 /* XmlBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XmlBuilder.m; path = ../../STToolbelt/XmlBuilder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,8 +105,8 @@
 				BEB96A9715ABC70C003C58F2 /* MultiDictionary.m */,
 				BEB96A9815ABC70C003C58F2 /* NSData+Base64.h */,
 				BEB96A9915ABC70C003C58F2 /* NSData+Base64.m */,
-				BEB96A9A15ABC70C003C58F2 /* XmlBuilder.h */,
-				BEB96A9B15ABC70C003C58F2 /* XmlBuilder.m */,
+				BE966BA215ABCCEC00F75774 /* XMLBuilder.h */,
+				BE966BA315ABCCEC00F75774 /* XMLBuilder.m */,
 			);
 			name = STToolbelt;
 			sourceTree = "<group>";
@@ -192,7 +192,7 @@
 				BEB96A9415ABC6F3003C58F2 /* MultiDictionaryTestCase.m in Sources */,
 				BEB96A9C15ABC70C003C58F2 /* MultiDictionary.m in Sources */,
 				BEB96A9D15ABC70C003C58F2 /* NSData+Base64.m in Sources */,
-				BEB96A9E15ABC70C003C58F2 /* XmlBuilder.m in Sources */,
+				BE966BA415ABCCEC00F75774 /* XMLBuilder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +310,7 @@
 				BEB96A9115ABC61C003C58F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

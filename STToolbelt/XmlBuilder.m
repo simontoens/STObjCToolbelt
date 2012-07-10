@@ -1,8 +1,8 @@
 //  Created by Simon Toens on 6/16/12.
 
-#import "XmlBuilder.h"
+#import "XMLBuilder.h"
 
-@interface XmlBuilder()
+@interface XMLBuilder()
 @property (nonatomic, assign) BOOL configured;
 @property (nonatomic, strong) NSMutableArray *elementStack;
 @property (nonatomic, strong) NSMutableArray *markStack;
@@ -13,7 +13,7 @@
 - (void)write:(NSString *)elementName attributes:(NSArray *)attributes;
 @end
 
-@implementation XmlBuilder
+@implementation XMLBuilder
 
 @synthesize elementStack;
 
