@@ -1,13 +1,13 @@
 // @author Simon Toens 11/09/11
 
 #import "MultiDictionary.h"
-#import "MultiDictionaryTestCase.h"
+#import "MultiDictionaryTest.h"
 
-@interface MultiDictionaryTestCase()
+@interface MultiDictionaryTest()
 @property (nonatomic, strong) MultiDictionary* multiDict;
 @end
 
-@implementation MultiDictionaryTestCase
+@implementation MultiDictionaryTest
 
 @synthesize multiDict;
 

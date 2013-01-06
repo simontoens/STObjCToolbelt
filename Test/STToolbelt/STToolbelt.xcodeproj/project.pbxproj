@@ -23,7 +23,7 @@
 		BE5079C31698EFDD00D561FB /* MultiDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5079B71698EF4B00D561FB /* MultiDictionary.m */; };
 		BE5079C51698EFDD00D561FB /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5079B91698EF4B00D561FB /* NSData+Base64.m */; };
 		BE5079C71698EFDD00D561FB /* XMLBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5079BB1698EF4B00D561FB /* XMLBuilder.m */; };
-		BE5079C91698EFDD00D561FB /* MultiDictionaryTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5079C01698EFAE00D561FB /* MultiDictionaryTestCase.m */; };
+		BE5079C91698EFDD00D561FB /* MultiDictionaryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5079C01698EFAE00D561FB /* MultiDictionaryTest.m */; };
 		BEEE703D16992D98009767AD /* VarintCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = BEEE703C16992D98009767AD /* VarintCoder.m */; };
 		BEEE703E16992D98009767AD /* VarintCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = BEEE703C16992D98009767AD /* VarintCoder.m */; };
 		BEEE704616992F5C009767AD /* Preconditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BEEE704516992F5C009767AD /* Preconditions.m */; };
@@ -62,8 +62,8 @@
 		BE5079B91698EF4B00D561FB /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+Base64.m"; path = "../../../Source/NSData+Base64.m"; sourceTree = "<group>"; };
 		BE5079BA1698EF4B00D561FB /* XMLBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLBuilder.h; path = ../../../Source/XMLBuilder.h; sourceTree = "<group>"; };
 		BE5079BB1698EF4B00D561FB /* XMLBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLBuilder.m; path = ../../../Source/XMLBuilder.m; sourceTree = "<group>"; };
-		BE5079BF1698EFAE00D561FB /* MultiDictionaryTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MultiDictionaryTestCase.h; path = Classes/MultiDictionaryTestCase.h; sourceTree = "<group>"; };
-		BE5079C01698EFAE00D561FB /* MultiDictionaryTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MultiDictionaryTestCase.m; path = Classes/MultiDictionaryTestCase.m; sourceTree = "<group>"; };
+		BE5079BF1698EFAE00D561FB /* MultiDictionaryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; name = MultiDictionaryTest.h; path = Classes/MultiDictionaryTest.h; sourceTree = "<group>"; };
+		BE5079C01698EFAE00D561FB /* MultiDictionaryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MultiDictionaryTest.m; path = Classes/MultiDictionaryTest.m; sourceTree = "<group>"; };
 		BEEE703B16992D98009767AD /* VarintCoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VarintCoder.h; path = ../../../Source/VarintCoder.h; sourceTree = "<group>"; };
 		BEEE703C16992D98009767AD /* VarintCoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VarintCoder.m; path = ../../../Source/VarintCoder.m; sourceTree = "<group>"; };
 		BEEE704416992F5C009767AD /* Preconditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Preconditions.h; path = ../../../Source/Preconditions.h; sourceTree = "<group>"; };
@@ -158,8 +158,8 @@
 		BE5079A51698EE6900D561FB /* STToolbeltTests */ = {
 			isa = PBXGroup;
 			children = (
-				BE5079BF1698EFAE00D561FB /* MultiDictionaryTestCase.h */,
-				BE5079C01698EFAE00D561FB /* MultiDictionaryTestCase.m */,
+				BE5079BF1698EFAE00D561FB /* MultiDictionaryTest.h */,
+				BE5079C01698EFAE00D561FB /* MultiDictionaryTest.m */,
 				BEEE70481699340A009767AD /* VarintCoderTest.h */,
 				BEEE70491699340A009767AD /* VarintCoderTest.m */,
 				BE175730169A297D0053E267 /* XMLBuilderTest.h */,
@@ -299,7 +299,7 @@
 				BE5079C31698EFDD00D561FB /* MultiDictionary.m in Sources */,
 				BE5079C51698EFDD00D561FB /* NSData+Base64.m in Sources */,
 				BE5079C71698EFDD00D561FB /* XMLBuilder.m in Sources */,
-				BE5079C91698EFDD00D561FB /* MultiDictionaryTestCase.m in Sources */,
+				BE5079C91698EFDD00D561FB /* MultiDictionaryTest.m in Sources */,
 				BEEE703E16992D98009767AD /* VarintCoder.m in Sources */,
 				BEEE704716992F5C009767AD /* Preconditions.m in Sources */,
 				BEEE704A1699340A009767AD /* VarintCoderTest.m in Sources */,

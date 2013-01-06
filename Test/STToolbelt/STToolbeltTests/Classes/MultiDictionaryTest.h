@@ -2,6 +2,6 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-@interface MultiDictionaryTestCase : SenTestCase
+@interface MultiDictionaryTest : SenTestCase
     
 @end
