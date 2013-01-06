@@ -1,4 +1,4 @@
-//  Created by Simon Toens on 11/9/11.
+// @author Simon Toens 11/09/11
 
 #import <SenTestingKit/SenTestingKit.h>
 

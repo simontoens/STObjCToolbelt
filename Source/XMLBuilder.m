@@ -1,4 +1,4 @@
-//  Created by Simon Toens on 6/16/12.
+// @author Simon Toens 6/16/12.
 
 #import "XMLBuilder.h"
 

@@ -1,4 +1,4 @@
-// Created by Simon Toens on 10/23/11.
+// @author Simon Toens 10/23/11
 
 #import "MultiDictionary.h"
 

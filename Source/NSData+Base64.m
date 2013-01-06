@@ -1,8 +1,10 @@
-//  Created by Simon Toens on 6/19/12.
+// @author Simon Toens 6/19/12
 
 #import "NSData+Base64.h"
 
 @implementation NSData (Base64)
+
+// Code from http://stackoverflow.com/questions/392464/any-base64-library-on-iphone-sdk
 
 static const char _base64EncodingTable[64] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 static const short _base64DecodingTable[256] = {
