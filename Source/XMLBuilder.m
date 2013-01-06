@@ -6,7 +6,7 @@
 @property (nonatomic, assign) BOOL configured;
 @property (nonatomic, strong) NSMutableArray *elementStack;
 @property (nonatomic, strong) NSMutableArray *markStack;
-@property (nonatomic, strong, readwrite) NSMutableString *xml;
+@property (nonatomic, strong, readwrite) NSMutableString *xmlDocument;
 - (void)eol;
 - (void)indent;
 - (void)configure;
@@ -18,15 +18,20 @@
 @synthesize elementStack;
 
 @synthesize configured;
+@synthesize includeXmlProcessingInstruction;
 @synthesize prettyPrint;
 @synthesize markStack;
-@synthesize xml;
+@synthesize xmlDocument;
+
+# pragma mark - Public methods
 
 - (id)init {
     if (self = [super init]) {
-        elementStack = [[NSMutableArray alloc] init];
-        markStack = [[NSMutableArray alloc] init];
-        xml = [[NSMutableString alloc] init];
+        self.elementStack = [[NSMutableArray alloc] init];
+        self.includeXmlProcessingInstruction = YES;
+        self.markStack = [[NSMutableArray alloc] init];
+        self.prettyPrint = NO;
+        self.xmlDocument = [[NSMutableString alloc] init];
     }
     return self;
 }
@@ -47,15 +52,15 @@
 
 - (void)addValue:(NSString *)value {
     [self indent];
-    [xml appendString:value];
+    [self.xmlDocument appendString:value];
     [self eol];
 }
 
 - (void)closeElement {
     NSString *elementName = [elementStack lastObject];
-    [elementStack removeLastObject];
+    [self.elementStack removeLastObject];
     [self indent];
-    [xml appendFormat:@"</%@>", elementName];
+    [self.xmlDocument appendFormat:@"</%@>", elementName];
     [self eol];
 }
 
@@ -66,33 +71,41 @@
 }
 
 - (void)mark {
-    [markStack addObject:[NSNumber numberWithInt:[elementStack count]]];
+    [self.markStack addObject:[NSNumber numberWithInt:[elementStack count]]];
 }
 
 - (void)closeElementsUntilMark {
     int elementCount = [elementStack count];
     int mark = [[markStack lastObject] intValue];
-    [markStack removeLastObject];
+    [self.markStack removeLastObject];
     for (int i = mark; i < elementCount; i++) {
         [self closeElement];    
     }
 }
+
+#pragma mark - Properties
+
+- (NSString *)xml {
+    return self.xmlDocument;
+}
+
+#pragma mark - Private methods
 
 - (void)write:(NSString *)elementName attributes:(NSArray *)attributes {
     if (!configured) {
         [self configure];
     }
     [self indent];
-    [xml appendFormat:@"<%@", elementName];
+    [self.xmlDocument appendFormat:@"<%@", elementName];
     if (attributes) {
         for (int i = 0; i < [attributes count]; i+=2) {
-            [xml appendString:@" "];
-            [xml appendFormat:@"%@=\"%@\"", [attributes objectAtIndex:i], [attributes objectAtIndex:i+1]];
+            [self.xmlDocument appendString:@" "];
+            [self.xmlDocument appendFormat:@"%@=\"%@\"", [attributes objectAtIndex:i], [attributes objectAtIndex:i+1]];
         }
     }
-    [xml appendString:@">"];
+    [self.xmlDocument appendString:@">"];
     [self eol];
-    [elementStack addObject:elementName];
+    [self.elementStack addObject:elementName];
 }
 
 - (void)indent {
@@ -100,7 +113,7 @@
         return;
     }
     for (NSString *element in elementStack) {
-        [xml appendString:@"  "];
+        [self.xmlDocument appendString:@"  "];
     }
 }
 
@@ -108,18 +121,22 @@
     if (!prettyPrint) {
         return;
     }
-    [xml appendString:@"\n"];
+    [self.xmlDocument appendString:@"\n"];
 }
 
 - (void)configure {
-    // add this before writing anything else
-    [xml appendString:@"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"];
-    [self eol];
+    if (includeXmlProcessingInstruction) {
+        [self.xmlDocument appendString:@"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"];
+        [self eol];
+    }
     configured = YES;
 }
 
 - (NSString *)description {
-    return xml;    
+    if (!configured) {
+        [self configure];
+    }
+    return self.xmlDocument;    
 }
 
 @end

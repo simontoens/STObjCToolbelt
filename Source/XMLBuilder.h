@@ -50,8 +50,16 @@
 /**
  * The generated xml.
  */
-@property (nonatomic, strong, readonly) NSMutableString *xml;
+@property (nonatomic, strong, readonly) NSString *xml;
 
+/**
+ * Whether to pretty-print the generated xml.  Defaults to NO.
+ */
 @property (nonatomic) BOOL prettyPrint;
+
+/**
+ * Whether to include the initial <?xml ... processing instruction.  Defaults to YES.
+ */
+@property (nonatomic) BOOL includeXmlProcessingInstruction;
 
 @end

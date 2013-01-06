@@ -17,8 +17,11 @@
 
 - (id)initWithNumBits:(NSUInteger)aNumBitsInGroup {
     if (self = [super init]) {
-        [Preconditions assertArg:@"Must have at least 2 bits" condition:aNumBitsInGroup >=2];
-        numBitsInGroup = aNumBitsInGroup;
+        // note: since we always use a full byte, it is a waste to use less than 8 bits
+        [Preconditions assertArg:@"Must have at least 2 bits" condition:aNumBitsInGroup >= 2];
+        [Preconditions assertArg:@"Must have at most 8 bits" condition:aNumBitsInGroup <= 8];
+
+        numBitsInGroup = aNumBitsInGroup - 1; // leftmost bit is reserved
     }
     return self;
 }
@@ -43,23 +46,51 @@
         numBitGroups += 1;
     }
     
-    NSLog(@"Bits required: %i", bitsRequired);
-    NSLog(@"Bit groups of %i required: %i", numBitsInGroup, numBitGroups);
-    
-
-    uint8_t bytes[numBitGroups];
-    
     int currentBitGroup = numBitGroups;
     
+    uint8_t bytes[numBitGroups];
+    
     while (currentBitGroup > 0) {
+        
         int divisor = 1 << ((currentBitGroup - 1) * numBitsInGroup);
-        bytes[numBitGroups - currentBitGroup] = value / divisor;
-        NSLog(@"bit group: %i value: %i", currentBitGroup, bytes[numBitGroups - currentBitGroup]);
+        
+        // write in order of least significant byte to make decoding easier
+        int bitGroupIndex = currentBitGroup - 1;
+        
+        bytes[bitGroupIndex] = value / divisor;
+        
+        if (bitGroupIndex < (numBitGroups - 1)) {
+            bytes[bitGroupIndex] |= 1 << numBitsInGroup;
+        }
+                
         value = value % divisor;
+        
         currentBitGroup -= 1;
     }
     
     [data appendData:[NSData dataWithBytes:(void *)bytes length:numBitGroups]];
+}
+
+- (NSUInteger)decode:(NSData *)data {
+    int value = 0;
+    const uint8_t *bytes = [data bytes];
+    for (int i = 0; i < [data length]; i++) {
+        uint8_t byteValue = bytes[i];
+        BOOL lastByte = YES;
+        if (byteValue & (1 << numBitsInGroup)) {
+            lastByte = NO;
+            byteValue &= (1 << numBitsInGroup) - 1;
+        }
+        
+        // bytes are in order of least significant byte
+        int multiplier = 1 << (i * numBitsInGroup);
+        
+        value += multiplier * byteValue;
+        if (lastByte) {
+            break;
+        }
+    }
+    return value;
 }
 
 @end

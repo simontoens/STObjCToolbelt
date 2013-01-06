@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE175732169A297D0053E267 /* XMLBuilderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE175731169A297D0053E267 /* XMLBuilderTest.m */; };
 		BE5079881698EE6900D561FB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5079871698EE6900D561FB /* UIKit.framework */; };
 		BE50798A1698EE6900D561FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5079891698EE6900D561FB /* Foundation.framework */; };
 		BE50798C1698EE6900D561FB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE50798B1698EE6900D561FB /* CoreGraphics.framework */; };
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE175730169A297D0053E267 /* XMLBuilderTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLBuilderTest.h; path = Classes/XMLBuilderTest.h; sourceTree = "<group>"; };
+		BE175731169A297D0053E267 /* XMLBuilderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLBuilderTest.m; path = Classes/XMLBuilderTest.m; sourceTree = "<group>"; };
 		BE5079831698EE6900D561FB /* STToolbelt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = STToolbelt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE5079871698EE6900D561FB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BE5079891698EE6900D561FB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -159,6 +162,8 @@
 				BE5079C01698EFAE00D561FB /* MultiDictionaryTestCase.m */,
 				BEEE70481699340A009767AD /* VarintCoderTest.h */,
 				BEEE70491699340A009767AD /* VarintCoderTest.m */,
+				BE175730169A297D0053E267 /* XMLBuilderTest.h */,
+				BE175731169A297D0053E267 /* XMLBuilderTest.m */,
 				BE5079A61698EE6900D561FB /* Supporting Files */,
 			);
 			path = STToolbeltTests;
@@ -298,6 +303,7 @@
 				BEEE703E16992D98009767AD /* VarintCoder.m in Sources */,
 				BEEE704716992F5C009767AD /* Preconditions.m in Sources */,
 				BEEE704A1699340A009767AD /* VarintCoderTest.m in Sources */,
+				BE175732169A297D0053E267 /* XMLBuilderTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
