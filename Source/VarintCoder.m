@@ -76,6 +76,11 @@
         doneDecoding:(BOOL *)doneDecoding 
 {
     const uint8_t *bytes = [data bytes];
+    
+    if (numBytesDecoded) {
+        *numBytesDecoded = 0;
+    }
+    
     if (doneDecoding) {
         *doneDecoding = NO;
     }
@@ -92,10 +97,12 @@
         byteRead += 1;
         
         decodingInProgressValue += multiplier * byteValue;
+        
+        if (numBytesDecoded) {
+            *numBytesDecoded += 1;
+        }
+        
         if (lastByte) {
-            if (numBytesDecoded) {
-                *numBytesDecoded = i + 1;
-            }
             if (doneDecoding) {
                 *doneDecoding = YES;
             }
