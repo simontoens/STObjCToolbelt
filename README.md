@@ -3,7 +3,7 @@ STObjCToolbelt
 
 Various more or less helpful utility classes:
 
-MultiDictionary - Values can map to keys.
+MultiDictionary - A one-to-many dictionary.
 
 NSData+Base64 - Base64 encoding for NSData.
 
