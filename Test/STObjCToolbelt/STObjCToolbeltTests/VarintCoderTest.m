@@ -48,19 +48,19 @@
     VarintCoder *c = [[VarintCoder alloc] init];
     c.numBitsPerByte = 2;
     
-    STAssertEquals([c decode:[c encode:0] numBytesDecoded:NULL doneDecoding:NULL], (NSUInteger)0, @"Bad decoded value");
-    STAssertEquals([c decode:[c encode:1] numBytesDecoded:NULL doneDecoding:NULL], (NSUInteger)1, @"Bad decoded value");
+    STAssertEquals([c decode:[c encode:0]], (NSUInteger)0, @"Bad decoded value");
+    STAssertEquals([c decode:[c encode:1]], (NSUInteger)1, @"Bad decoded value");
 }
 
 - (void)testDecodeMultipleBytes {
     VarintCoder *c = [[VarintCoder alloc] init];
     c.numBitsPerByte = 2;
     
-    STAssertEquals([c decode:[c encode:2] numBytesDecoded:NULL doneDecoding:NULL], (NSUInteger)2, @"Bad decoded value");
-    STAssertEquals([c decode:[c encode:3] numBytesDecoded:NULL doneDecoding:NULL], (NSUInteger)3, @"Bad decoded value");
-    STAssertEquals([c decode:[c encode:4] numBytesDecoded:NULL doneDecoding:NULL], (NSUInteger)4, @"Bad decoded value");
-    STAssertEquals([c decode:[c encode:5] numBytesDecoded:NULL doneDecoding:NULL], (NSUInteger)5, @"Bad decoded value");
-    STAssertEquals([c decode:[c encode:8] numBytesDecoded:NULL doneDecoding:NULL], (NSUInteger)8, @"Bad decoded value");    
+    STAssertEquals([c decode:[c encode:2]], (NSUInteger)2, @"Bad decoded value");
+    STAssertEquals([c decode:[c encode:3]], (NSUInteger)3, @"Bad decoded value");
+    STAssertEquals([c decode:[c encode:4]], (NSUInteger)4, @"Bad decoded value");
+    STAssertEquals([c decode:[c encode:5]], (NSUInteger)5, @"Bad decoded value");
+    STAssertEquals([c decode:[c encode:8]], (NSUInteger)8, @"Bad decoded value");    
 }
 
 - (void)testDecodeMultipleBytesWithGarbageAtEndOfNSData {
@@ -70,20 +70,20 @@
     NSMutableData *data = [NSMutableData dataWithData:[c encode:10]];
     uint8_t garbage[] = {122, 20, 10, 22};
     [data appendBytes:garbage length:4];
-    STAssertEquals([c decode:data numBytesDecoded:NULL doneDecoding:NULL], (NSUInteger)10, @"Bad decoded value");    
+    STAssertEquals([c decode:data], (NSUInteger)10, @"Bad decoded value");    
 }
 
 - (void)testDecodeLargeValue {
     VarintCoder *c = [[VarintCoder alloc] init];
     int val = 2000001;
-    STAssertEquals([c decode:[c encode:val] numBytesDecoded:NULL doneDecoding:NULL], (NSUInteger)val, @"Bad decoded value");
+    STAssertEquals([c decode:[c encode:val]], (NSUInteger)val, @"Bad decoded value");
 }
 
-- (void)testCountnumBytesDecodedDecoded {
+- (void)testCountNumBytesDecodedDecoded {
     VarintCoder *c = [[VarintCoder alloc] init];
     c.numBitsPerByte = 2;
     NSUInteger numBytesDecoded = 0;
-    [c decode:[c encode:8] numBytesDecoded:&numBytesDecoded doneDecoding:NULL];
+    [c decode:[c encode:8] offset:0 numBytesDecoded:&numBytesDecoded doneDecoding:NULL];
     STAssertEquals(numBytesDecoded, (NSUInteger)4, @"Bad decoded byte count");
 }
 
@@ -97,15 +97,28 @@
     for (int i = 0; i < [data length] - 1; i++) {
         BOOL doneDecoding = NO;
         NSData *singleByte = [NSData dataWithBytesNoCopy:(uint8_t[]){bytes[i]} length:1];
-        NSUInteger result = [c decode:singleByte numBytesDecoded:NULL doneDecoding:&doneDecoding];
+        NSUInteger result = [c decode:singleByte offset:0 numBytesDecoded:NULL doneDecoding:&doneDecoding];
         STAssertEquals(result, (NSUInteger)0, @"Decoding not complete");
         STAssertFalse(doneDecoding, @"Decoding not complete");
     }
     BOOL doneDecoding = NO;
     NSData *singleByte = [NSData dataWithBytesNoCopy:(uint8_t[]){bytes[3]} length:1];
-    NSUInteger result = [c decode:singleByte numBytesDecoded:NULL doneDecoding:&doneDecoding];
+    NSUInteger result = [c decode:singleByte offset:0 numBytesDecoded:NULL doneDecoding:&doneDecoding];
     STAssertEquals(result, value, @"Bad decoded value");
     STAssertTrue(doneDecoding, @"Decoding complete");    
+}
+
+- (void)testOffset {
+    VarintCoder *c = [[VarintCoder alloc] init];
+    c.numBitsPerByte = 2;
+    
+    NSMutableData *encodedData = [NSMutableData dataWithData:[c encode:10]];
+    uint8_t garbage[] = {122, 20, 10, 22};
+    NSMutableData *data = [NSMutableData data];
+    [data appendBytes:garbage length:4];
+    [data appendData:encodedData];
+    [data appendBytes:garbage length:4];
+    STAssertEquals([c decode:data offset:4 numBytesDecoded:NULL doneDecoding:NULL], (NSUInteger)10, @"Bad decoded value");        
 }
 
 @end

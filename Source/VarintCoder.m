@@ -70,12 +70,16 @@
     [data appendData:[NSData dataWithBytes:(void *)bytes length:numBitGroups]];
 }
 
-- (NSUInteger)decode:(NSData *)data numBytesDecoded:(NSUInteger *)numBytesDecoded doneDecoding:(BOOL *)doneDecoding {
+- (NSUInteger)decode:(NSData *)data 
+              offset:(NSUInteger)offset 
+     numBytesDecoded:(NSUInteger *)numBytesDecoded 
+        doneDecoding:(BOOL *)doneDecoding 
+{
     const uint8_t *bytes = [data bytes];
     if (doneDecoding) {
         *doneDecoding = NO;
     }
-    for (int i = 0; i < [data length]; i++) {
+    for (int i = offset; i < [data length]; i++) {
         uint8_t byteValue = bytes[i];
         BOOL lastByte = YES;
         if (byteValue & (1 << numBitsPerByte)) {
@@ -102,6 +106,10 @@
         }
     }
     return 0;
+}
+
+- (NSUInteger)decode:(NSData *)data {
+    return [self decode:data offset:0 numBytesDecoded:NULL doneDecoding:NULL];
 }
 
 #pragma mark - Properties

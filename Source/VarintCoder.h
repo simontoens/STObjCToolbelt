@@ -28,11 +28,20 @@
  * will return the decoded value.  Use the doneDecoding argument to determine if decoding is complete.
  *
  * @param data  The bytes to decode, previously encoded using the encode method in this class
+ * @param offset  The offset to use when indexing into data
  * @param numBytesDecodedDecoded  The number of bytes that have been decoded
  * @param doneDecoding  Whether the decoding is complete
  * @return The decoded value, or 0 if the decoding is not doneDecoding yet.
  */
-- (NSUInteger)decode:(NSData *)data numBytesDecoded:(NSUInteger *)numBytesDecoded doneDecoding:(BOOL *)doneDecoding;
+- (NSUInteger)decode:(NSData *)data 
+              offset:(NSUInteger)offset 
+     numBytesDecoded:(NSUInteger *)numBytesDecoded 
+        doneDecoding:(BOOL *)doneDecoding;
+
+/**
+ * Same as calling decode:data offset:0 numBytesDecoded:NULL doneDecoding:NULL.
+ */
+- (NSUInteger)decode:(NSData *)data;
 
 /**
  * How many bits to use per byte.  Defaults to 8.  Useful for testing.
