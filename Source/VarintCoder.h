@@ -10,11 +10,15 @@
 @interface VarintCoder : NSObject
 
 - (id)init;
-- (id)initWithNumBits:(NSUInteger)aNumBits;
 
 - (NSData *)encode:(NSUInteger)value;
 - (void)encode:(NSUInteger)value into:(NSMutableData *)data;
 
-- (NSUInteger)decode:(NSData *)data;
+- (NSUInteger)decode:(NSData *)data numBytes:(NSUInteger *)numBytes;
+
+/**
+ * How many bits to use per byte.  Defaults to 8.  Useful for testing.
+ */
+@property (nonatomic) uint8_t numBitsPerByte;
 
 @end

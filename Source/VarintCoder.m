@@ -3,25 +3,13 @@
 #import "Preconditions.h"
 #import "VarintCoder.h"
 
-@interface VarintCoder() {
-@private
-    NSInteger numBitsInGroup;
-}
-@end
-
 @implementation VarintCoder
 
+@synthesize numBitsPerByte;
+
 - (id)init {
-    return [self initWithNumBits:8];
-}
-
-- (id)initWithNumBits:(NSUInteger)aNumBitsInGroup {
     if (self = [super init]) {
-        // note: since we always use a full byte, it is a waste to use less than 8 bits
-        [Preconditions assertArg:@"Must have at least 2 bits" condition:aNumBitsInGroup >= 2];
-        [Preconditions assertArg:@"Must have at most 8 bits" condition:aNumBitsInGroup <= 8];
-
-        numBitsInGroup = aNumBitsInGroup - 1; // leftmost bit is reserved
+        self.numBitsPerByte = 8;
     }
     return self;
 }
@@ -40,9 +28,9 @@
         bitsRequired += 1;
     } while (val != 0);
     
-    int numBitGroups = bitsRequired / numBitsInGroup;
+    int numBitGroups = bitsRequired / self.numBitsPerByte;
     
-    if ((bitsRequired % numBitsInGroup != 0)) {
+    if ((bitsRequired % self.numBitsPerByte != 0)) {
         numBitGroups += 1;
     }
     
@@ -52,7 +40,7 @@
     
     while (currentBitGroup > 0) {
         
-        int divisor = 1 << ((currentBitGroup - 1) * numBitsInGroup);
+        int divisor = 1 << ((currentBitGroup - 1) * self.numBitsPerByte);
         
         // write in order of least significant byte to make decoding easier
         int bitGroupIndex = currentBitGroup - 1;
@@ -60,7 +48,7 @@
         bytes[bitGroupIndex] = value / divisor;
         
         if (bitGroupIndex < (numBitGroups - 1)) {
-            bytes[bitGroupIndex] |= 1 << numBitsInGroup;
+            bytes[bitGroupIndex] |= 1 << self.numBitsPerByte;
         }
                 
         value = value % divisor;
@@ -71,26 +59,36 @@
     [data appendData:[NSData dataWithBytes:(void *)bytes length:numBitGroups]];
 }
 
-- (NSUInteger)decode:(NSData *)data {
+- (NSUInteger)decode:(NSData *)data numBytes:(NSUInteger *)numBytes {
     int value = 0;
     const uint8_t *bytes = [data bytes];
     for (int i = 0; i < [data length]; i++) {
         uint8_t byteValue = bytes[i];
         BOOL lastByte = YES;
-        if (byteValue & (1 << numBitsInGroup)) {
+        if (byteValue & (1 << numBitsPerByte)) {
             lastByte = NO;
-            byteValue &= (1 << numBitsInGroup) - 1;
+            byteValue &= (1 << numBitsPerByte) - 1;
         }
         
         // bytes are in order of least significant byte
-        int multiplier = 1 << (i * numBitsInGroup);
+        int multiplier = 1 << (i * self.numBitsPerByte);
         
         value += multiplier * byteValue;
         if (lastByte) {
+            if (numBytes) {
+                *numBytes = i + 1;
+            }
             break;
         }
     }
     return value;
+}
+
+- (void)setNumBitsPerByte:(uint8_t)aNumBitsPerByte {
+    // since we always use a full byte, it is a waste to use less tha
+    [Preconditions assertArg:@"Must have at least 2 bits" condition:aNumBitsPerByte >= 2];
+    [Preconditions assertArg:@"Must have at most 8 bits" condition:aNumBitsPerByte <= 8];
+    numBitsPerByte = aNumBitsPerByte - 1; // leftmost bit is reserved
 }
 
 @end
