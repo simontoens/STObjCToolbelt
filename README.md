@@ -9,6 +9,6 @@ NSData+Base64 - Base64 encoding for NSData.
 
 Preconditions - Useful assertions for checking method arguments.
 
-VarintCoder - Serializes ints as variable length of base 128 bytes.
+VarintCoder - Serializes ints to one or more base 128 bytes.
 
 XMLWriter - Easily build simple xml documents.
