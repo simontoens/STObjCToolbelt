@@ -48,19 +48,19 @@
     VarintCoder *c = [[VarintCoder alloc] init];
     c.numBitsPerByte = 2;
     
-    STAssertEquals([c decode:[c encode:0] numBytes:NULL], (NSUInteger)0, @"Bad decoded value");
-    STAssertEquals([c decode:[c encode:1] numBytes:NULL], (NSUInteger)1, @"Bad decoded value");
+    STAssertEquals([c decode:[c encode:0] numBytesDecoded:NULL doneDecoding:NULL], (NSUInteger)0, @"Bad decoded value");
+    STAssertEquals([c decode:[c encode:1] numBytesDecoded:NULL doneDecoding:NULL], (NSUInteger)1, @"Bad decoded value");
 }
 
 - (void)testDecodeMultipleBytes {
     VarintCoder *c = [[VarintCoder alloc] init];
     c.numBitsPerByte = 2;
     
-    STAssertEquals([c decode:[c encode:2] numBytes:NULL], (NSUInteger)2, @"Bad decoded value");
-    STAssertEquals([c decode:[c encode:3] numBytes:NULL], (NSUInteger)3, @"Bad decoded value");
-    STAssertEquals([c decode:[c encode:4] numBytes:NULL], (NSUInteger)4, @"Bad decoded value");
-    STAssertEquals([c decode:[c encode:5] numBytes:NULL], (NSUInteger)5, @"Bad decoded value");
-    STAssertEquals([c decode:[c encode:8] numBytes:NULL], (NSUInteger)8, @"Bad decoded value");    
+    STAssertEquals([c decode:[c encode:2] numBytesDecoded:NULL doneDecoding:NULL], (NSUInteger)2, @"Bad decoded value");
+    STAssertEquals([c decode:[c encode:3] numBytesDecoded:NULL doneDecoding:NULL], (NSUInteger)3, @"Bad decoded value");
+    STAssertEquals([c decode:[c encode:4] numBytesDecoded:NULL doneDecoding:NULL], (NSUInteger)4, @"Bad decoded value");
+    STAssertEquals([c decode:[c encode:5] numBytesDecoded:NULL doneDecoding:NULL], (NSUInteger)5, @"Bad decoded value");
+    STAssertEquals([c decode:[c encode:8] numBytesDecoded:NULL doneDecoding:NULL], (NSUInteger)8, @"Bad decoded value");    
 }
 
 - (void)testDecodeMultipleBytesWithGarbageAtEndOfNSData {
@@ -70,21 +70,42 @@
     NSMutableData *data = [NSMutableData dataWithData:[c encode:10]];
     uint8_t garbage[] = {122, 20, 10, 22};
     [data appendBytes:garbage length:4];
-    STAssertEquals([c decode:data numBytes:NULL], (NSUInteger)10, @"Bad decoded value");    
+    STAssertEquals([c decode:data numBytesDecoded:NULL doneDecoding:NULL], (NSUInteger)10, @"Bad decoded value");    
 }
 
 - (void)testDecodeLargeValue {
     VarintCoder *c = [[VarintCoder alloc] init];
     int val = 2000001;
-    STAssertEquals([c decode:[c encode:val] numBytes:NULL], (NSUInteger)val, @"Bad decoded value");
+    STAssertEquals([c decode:[c encode:val] numBytesDecoded:NULL doneDecoding:NULL], (NSUInteger)val, @"Bad decoded value");
 }
 
-- (void)testCountNumBytesDecoded {
+- (void)testCountnumBytesDecodedDecoded {
     VarintCoder *c = [[VarintCoder alloc] init];
     c.numBitsPerByte = 2;
-    NSUInteger numBytes = 0;
-    [c decode:[c encode:8] numBytes:&numBytes];
-    STAssertEquals(numBytes, (NSUInteger)4, @"Bad decoded byte count");
+    NSUInteger numBytesDecoded = 0;
+    [c decode:[c encode:8] numBytesDecoded:&numBytesDecoded doneDecoding:NULL];
+    STAssertEquals(numBytesDecoded, (NSUInteger)4, @"Bad decoded byte count");
+}
+
+- (void)testdoneDecodingDecoding {
+    VarintCoder *c = [[VarintCoder alloc] init];
+    c.numBitsPerByte = 2;
+    NSUInteger value = 12;
+    NSData *data = [c encode:value];
+    STAssertEquals([data length], (NSUInteger)4, @"Unexpected length");
+    const uint8_t *bytes = [data bytes];
+    for (int i = 0; i < [data length] - 1; i++) {
+        BOOL doneDecoding = NO;
+        NSData *singleByte = [NSData dataWithBytesNoCopy:(uint8_t[]){bytes[i]} length:1];
+        NSUInteger result = [c decode:singleByte numBytesDecoded:NULL doneDecoding:&doneDecoding];
+        STAssertEquals(result, (NSUInteger)0, @"Decoding not complete");
+        STAssertFalse(doneDecoding, @"Decoding not complete");
+    }
+    BOOL doneDecoding = NO;
+    NSData *singleByte = [NSData dataWithBytesNoCopy:(uint8_t[]){bytes[3]} length:1];
+    NSUInteger result = [c decode:singleByte numBytesDecoded:NULL doneDecoding:&doneDecoding];
+    STAssertEquals(result, value, @"Bad decoded value");
+    STAssertTrue(doneDecoding, @"Decoding complete");    
 }
 
 @end

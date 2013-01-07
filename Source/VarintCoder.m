@@ -3,19 +3,30 @@
 #import "Preconditions.h"
 #import "VarintCoder.h"
 
+@interface VarintCoder() {
+@private
+    NSUInteger byteRead;
+    NSUInteger decodingInProgressValue;
+}
+@end
+
 @implementation VarintCoder
 
 @synthesize numBitsPerByte;
 
+#pragma mark - Public methods
+
 - (id)init {
     if (self = [super init]) {
+        byteRead = 0;
+        decodingInProgressValue = 0;
         self.numBitsPerByte = 8;
     }
     return self;
 }
 
 - (NSData *)encode:(NSUInteger)value {
-    NSMutableData *data = [[NSMutableData alloc] init]; // actually init with right size
+    NSMutableData *data = [[NSMutableData alloc] init]; // actually init with right size?
     [self encode:value into:data];
     return data;
 }
@@ -59,9 +70,11 @@
     [data appendData:[NSData dataWithBytes:(void *)bytes length:numBitGroups]];
 }
 
-- (NSUInteger)decode:(NSData *)data numBytes:(NSUInteger *)numBytes {
-    int value = 0;
+- (NSUInteger)decode:(NSData *)data numBytesDecoded:(NSUInteger *)numBytesDecoded doneDecoding:(BOOL *)doneDecoding {
     const uint8_t *bytes = [data bytes];
+    if (doneDecoding) {
+        *doneDecoding = NO;
+    }
     for (int i = 0; i < [data length]; i++) {
         uint8_t byteValue = bytes[i];
         BOOL lastByte = YES;
@@ -71,18 +84,27 @@
         }
         
         // bytes are in order of least significant byte
-        int multiplier = 1 << (i * self.numBitsPerByte);
+        int multiplier = 1 << (byteRead * self.numBitsPerByte);
+        byteRead += 1;
         
-        value += multiplier * byteValue;
+        decodingInProgressValue += multiplier * byteValue;
         if (lastByte) {
-            if (numBytes) {
-                *numBytes = i + 1;
+            if (numBytesDecoded) {
+                *numBytesDecoded = i + 1;
             }
-            break;
+            if (doneDecoding) {
+                *doneDecoding = YES;
+            }
+            NSUInteger rtn = decodingInProgressValue;
+            decodingInProgressValue = 0;
+            byteRead = 0;
+            return rtn;
         }
     }
-    return value;
+    return 0;
 }
+
+#pragma mark - Properties
 
 - (void)setNumBitsPerByte:(uint8_t)aNumBitsPerByte {
     // since we always use a full byte, it is a waste to use less tha
