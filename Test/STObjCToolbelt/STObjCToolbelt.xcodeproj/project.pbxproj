@@ -29,6 +29,9 @@
 		BE27355C169A572C00EEF675 /* VarintCoderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE273558169A572C00EEF675 /* VarintCoderTest.m */; };
 		BE27355D169A572C00EEF675 /* XMLBuilderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE27355A169A572C00EEF675 /* XMLBuilderTest.m */; };
 		BE273560169A583600EEF675 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE27355F169A583600EEF675 /* main.m */; };
+		BEED9A3D16B651FD002C7C26 /* BiDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = BEED9A3C16B651FD002C7C26 /* BiDictionary.m */; };
+		BEED9A4116B65322002C7C26 /* BiDictionaryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEED9A4016B65322002C7C26 /* BiDictionaryTest.m */; };
+		BEED9A4216B653B1002C7C26 /* BiDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = BEED9A3C16B651FD002C7C26 /* BiDictionary.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +73,10 @@
 		BE273559169A572C00EEF675 /* XMLBuilderTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLBuilderTest.h; sourceTree = "<group>"; };
 		BE27355A169A572C00EEF675 /* XMLBuilderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLBuilderTest.m; sourceTree = "<group>"; };
 		BE27355F169A583600EEF675 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BEED9A3B16B651FD002C7C26 /* BiDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BiDictionary.h; sourceTree = "<group>"; };
+		BEED9A3C16B651FD002C7C26 /* BiDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BiDictionary.m; sourceTree = "<group>"; };
+		BEED9A3F16B65322002C7C26 /* BiDictionaryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BiDictionaryTest.h; sourceTree = "<group>"; };
+		BEED9A4016B65322002C7C26 /* BiDictionaryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BiDictionaryTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +136,8 @@
 		BE273517169A562C00EEF675 /* STObjCToolbelt */ = {
 			isa = PBXGroup;
 			children = (
+				BEED9A3B16B651FD002C7C26 /* BiDictionary.h */,
+				BEED9A3C16B651FD002C7C26 /* BiDictionary.m */,
 				BE273540169A567400EEF675 /* MultiDictionary.h */,
 				BE273541169A567400EEF675 /* MultiDictionary.m */,
 				BE273542169A567400EEF675 /* NSData+Base64.h */,
@@ -158,6 +167,8 @@
 		BE27352F169A562C00EEF675 /* STObjCToolbeltTests */ = {
 			isa = PBXGroup;
 			children = (
+				BEED9A3F16B65322002C7C26 /* BiDictionaryTest.h */,
+				BEED9A4016B65322002C7C26 /* BiDictionaryTest.m */,
 				BE273555169A572C00EEF675 /* MultiDictionaryTest.h */,
 				BE273556169A572C00EEF675 /* MultiDictionaryTest.m */,
 				BE273557169A572C00EEF675 /* VarintCoderTest.h */,
@@ -289,6 +300,7 @@
 				BE27354D169A567400EEF675 /* VarintCoder.m in Sources */,
 				BE27354E169A567400EEF675 /* XMLBuilder.m in Sources */,
 				BE273560169A583600EEF675 /* main.m in Sources */,
+				BEED9A3D16B651FD002C7C26 /* BiDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEED9A4216B653B1002C7C26 /* BiDictionary.m in Sources */,
 				BE27354F169A56A100EEF675 /* MultiDictionary.m in Sources */,
 				BE273550169A56A100EEF675 /* NSData+Base64.m in Sources */,
 				BE273551169A56A100EEF675 /* Preconditions.m in Sources */,
@@ -304,6 +317,7 @@
 				BE27355B169A572C00EEF675 /* MultiDictionaryTest.m in Sources */,
 				BE27355C169A572C00EEF675 /* VarintCoderTest.m in Sources */,
 				BE27355D169A572C00EEF675 /* XMLBuilderTest.m in Sources */,
+				BEED9A4116B65322002C7C26 /* BiDictionaryTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +469,7 @@
 				BE27353C169A562C00EEF675 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BE27353D169A562C00EEF675 /* Build configuration list for PBXNativeTarget "STObjCToolbeltTests" */ = {
 			isa = XCConfigurationList;
@@ -463,6 +478,7 @@
 				BE27353F169A562C00EEF675 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
