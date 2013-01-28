@@ -14,7 +14,7 @@
 #pragma mark - Initializers
 
 - (id)init {
-    if ((self = [super init])) {
+    if (self = [super init]) {
         dict = [[NSMutableDictionary alloc] init];
     }
     return self;
