@@ -16,12 +16,12 @@
 		BE27352C169A562C00EEF675 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE273513169A562C00EEF675 /* Foundation.framework */; };
 		BE273534169A562C00EEF675 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE273532169A562C00EEF675 /* InfoPlist.strings */; };
 		BE27354A169A567400EEF675 /* MultiDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = BE273541169A567400EEF675 /* MultiDictionary.m */; };
-		BE27354B169A567400EEF675 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = BE273543169A567400EEF675 /* NSData+Base64.m */; };
+		BE27354B169A567400EEF675 /* NSData+Encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = BE273543169A567400EEF675 /* NSData+Encoding.m */; };
 		BE27354C169A567400EEF675 /* Preconditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BE273545169A567400EEF675 /* Preconditions.m */; };
 		BE27354D169A567400EEF675 /* VarintCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = BE273547169A567400EEF675 /* VarintCoder.m */; };
 		BE27354E169A567400EEF675 /* XMLBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = BE273549169A567400EEF675 /* XMLBuilder.m */; };
 		BE27354F169A56A100EEF675 /* MultiDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = BE273541169A567400EEF675 /* MultiDictionary.m */; };
-		BE273550169A56A100EEF675 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = BE273543169A567400EEF675 /* NSData+Base64.m */; };
+		BE273550169A56A100EEF675 /* NSData+Encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = BE273543169A567400EEF675 /* NSData+Encoding.m */; };
 		BE273551169A56A100EEF675 /* Preconditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BE273545169A567400EEF675 /* Preconditions.m */; };
 		BE273552169A56A100EEF675 /* VarintCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = BE273547169A567400EEF675 /* VarintCoder.m */; };
 		BE273553169A56A100EEF675 /* XMLBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = BE273549169A567400EEF675 /* XMLBuilder.m */; };
@@ -29,6 +29,7 @@
 		BE27355C169A572C00EEF675 /* VarintCoderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE273558169A572C00EEF675 /* VarintCoderTest.m */; };
 		BE27355D169A572C00EEF675 /* XMLBuilderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE27355A169A572C00EEF675 /* XMLBuilderTest.m */; };
 		BE273560169A583600EEF675 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE27355F169A583600EEF675 /* main.m */; };
+		BEB9D4D116C848AB0089E62C /* NSData+EncodingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB9D4D016C848AB0089E62C /* NSData+EncodingTest.m */; };
 		BEED9A3D16B651FD002C7C26 /* BiDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = BEED9A3C16B651FD002C7C26 /* BiDictionary.m */; };
 		BEED9A4116B65322002C7C26 /* BiDictionaryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEED9A4016B65322002C7C26 /* BiDictionaryTest.m */; };
 		BEED9A4216B653B1002C7C26 /* BiDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = BEED9A3C16B651FD002C7C26 /* BiDictionary.m */; };
@@ -58,8 +59,8 @@
 		BE273533169A562C00EEF675 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BE273540169A567400EEF675 /* MultiDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MultiDictionary.h; path = ../../../Source/MultiDictionary.h; sourceTree = "<group>"; };
 		BE273541169A567400EEF675 /* MultiDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MultiDictionary.m; path = ../../../Source/MultiDictionary.m; sourceTree = "<group>"; };
-		BE273542169A567400EEF675 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+Base64.h"; path = "../../../Source/NSData+Base64.h"; sourceTree = "<group>"; };
-		BE273543169A567400EEF675 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+Base64.m"; path = "../../../Source/NSData+Base64.m"; sourceTree = "<group>"; };
+		BE273542169A567400EEF675 /* NSData+Encoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+Encoding.h"; path = "../../../Source/NSData+Encoding.h"; sourceTree = "<group>"; };
+		BE273543169A567400EEF675 /* NSData+Encoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+Encoding.m"; path = "../../../Source/NSData+Encoding.m"; sourceTree = "<group>"; };
 		BE273544169A567400EEF675 /* Preconditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Preconditions.h; path = ../../../Source/Preconditions.h; sourceTree = "<group>"; };
 		BE273545169A567400EEF675 /* Preconditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Preconditions.m; path = ../../../Source/Preconditions.m; sourceTree = "<group>"; };
 		BE273546169A567400EEF675 /* VarintCoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VarintCoder.h; path = ../../../Source/VarintCoder.h; sourceTree = "<group>"; };
@@ -73,6 +74,8 @@
 		BE273559169A572C00EEF675 /* XMLBuilderTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLBuilderTest.h; sourceTree = "<group>"; };
 		BE27355A169A572C00EEF675 /* XMLBuilderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLBuilderTest.m; sourceTree = "<group>"; };
 		BE27355F169A583600EEF675 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BEB9D4CF16C848AB0089E62C /* NSData+EncodingTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+EncodingTest.h"; sourceTree = "<group>"; };
+		BEB9D4D016C848AB0089E62C /* NSData+EncodingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+EncodingTest.m"; sourceTree = "<group>"; };
 		BEED9A3B16B651FD002C7C26 /* BiDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BiDictionary.h; sourceTree = "<group>"; };
 		BEED9A3C16B651FD002C7C26 /* BiDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BiDictionary.m; sourceTree = "<group>"; };
 		BEED9A3F16B65322002C7C26 /* BiDictionaryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BiDictionaryTest.h; sourceTree = "<group>"; };
@@ -140,8 +143,8 @@
 				BEED9A3C16B651FD002C7C26 /* BiDictionary.m */,
 				BE273540169A567400EEF675 /* MultiDictionary.h */,
 				BE273541169A567400EEF675 /* MultiDictionary.m */,
-				BE273542169A567400EEF675 /* NSData+Base64.h */,
-				BE273543169A567400EEF675 /* NSData+Base64.m */,
+				BE273542169A567400EEF675 /* NSData+Encoding.h */,
+				BE273543169A567400EEF675 /* NSData+Encoding.m */,
 				BE273544169A567400EEF675 /* Preconditions.h */,
 				BE273545169A567400EEF675 /* Preconditions.m */,
 				BE273546169A567400EEF675 /* VarintCoder.h */,
@@ -171,6 +174,8 @@
 				BEED9A4016B65322002C7C26 /* BiDictionaryTest.m */,
 				BE273555169A572C00EEF675 /* MultiDictionaryTest.h */,
 				BE273556169A572C00EEF675 /* MultiDictionaryTest.m */,
+				BEB9D4CF16C848AB0089E62C /* NSData+EncodingTest.h */,
+				BEB9D4D016C848AB0089E62C /* NSData+EncodingTest.m */,
 				BE273557169A572C00EEF675 /* VarintCoderTest.h */,
 				BE273558169A572C00EEF675 /* VarintCoderTest.m */,
 				BE273559169A572C00EEF675 /* XMLBuilderTest.h */,
@@ -295,7 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE27354A169A567400EEF675 /* MultiDictionary.m in Sources */,
-				BE27354B169A567400EEF675 /* NSData+Base64.m in Sources */,
+				BE27354B169A567400EEF675 /* NSData+Encoding.m in Sources */,
 				BE27354C169A567400EEF675 /* Preconditions.m in Sources */,
 				BE27354D169A567400EEF675 /* VarintCoder.m in Sources */,
 				BE27354E169A567400EEF675 /* XMLBuilder.m in Sources */,
@@ -310,7 +315,7 @@
 			files = (
 				BEED9A4216B653B1002C7C26 /* BiDictionary.m in Sources */,
 				BE27354F169A56A100EEF675 /* MultiDictionary.m in Sources */,
-				BE273550169A56A100EEF675 /* NSData+Base64.m in Sources */,
+				BE273550169A56A100EEF675 /* NSData+Encoding.m in Sources */,
 				BE273551169A56A100EEF675 /* Preconditions.m in Sources */,
 				BE273552169A56A100EEF675 /* VarintCoder.m in Sources */,
 				BE273553169A56A100EEF675 /* XMLBuilder.m in Sources */,
@@ -318,6 +323,7 @@
 				BE27355C169A572C00EEF675 /* VarintCoderTest.m in Sources */,
 				BE27355D169A572C00EEF675 /* XMLBuilderTest.m in Sources */,
 				BEED9A4116B65322002C7C26 /* BiDictionaryTest.m in Sources */,
+				BEB9D4D116C848AB0089E62C /* NSData+EncodingTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

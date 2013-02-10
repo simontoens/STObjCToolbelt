@@ -1,10 +1,8 @@
 // @author Simon Toens 6/19/12
 
-#import "NSData+Base64.h"
+#import "NSData+Encoding.h"
 
-@implementation NSData (Base64)
-
-// Code from http://stackoverflow.com/questions/392464/any-base64-library-on-iphone-sdk
+@implementation NSData (Encoding)
 
 static const char _base64EncodingTable[64] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 static const short _base64DecodingTable[256] = {
@@ -26,6 +24,7 @@ static const short _base64DecodingTable[256] = {
     -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2, -2
 };
 
+// Code from http://stackoverflow.com/questions/392464/any-base64-library-on-iphone-sdk
 + (NSData *)dataWithBase64EncodedString:(NSString *)strBase64 {
     const char * objPointer = [strBase64 cStringUsingEncoding:NSASCIIStringEncoding];
     int intLength = strlen(objPointer);
@@ -102,7 +101,7 @@ static const short _base64DecodingTable[256] = {
 }
 
 
-- (NSString *)getBase64EncodedString {
+- (NSString *)toBase64Encoding {
     const unsigned char * objRawData = [self bytes];
     char * objPointer;
     char * strResult;
@@ -146,6 +145,20 @@ static const short _base64DecodingTable[256] = {
     
     // Return the results as an NSString object
     return [NSString stringWithCString:strResult encoding:NSASCIIStringEncoding];
+}
+
+- (NSString *)toMD5 {    
+    unsigned char result[16];
+    
+    CC_MD5([self bytes], [self length], result);
+    
+    return [NSString stringWithFormat:
+            @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",
+            result[0], result[1], result[2], result[3], 
+            result[4], result[5], result[6], result[7],
+            result[8], result[9], result[10], result[11],
+            result[12], result[13], result[14], result[15]
+            ];  
 }
 
 @end
