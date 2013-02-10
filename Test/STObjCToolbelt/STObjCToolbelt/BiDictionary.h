@@ -12,6 +12,7 @@
 - (void)removeAllObjects;
 - (id)objectForKey:(id)key;
 - (BOOL)containsKey:(id)key;
-- (NSUInteger) count;
+
+@property (nonatomic, readonly) NSUInteger count;
 
 @end

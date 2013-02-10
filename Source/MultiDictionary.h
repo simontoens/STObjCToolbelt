@@ -52,6 +52,6 @@
 /**
  * Returns the number of mapped keys.
  */
-- (NSUInteger)count;
+@property (nonatomic, readonly) NSUInteger count;
 
 @end

@@ -91,9 +91,9 @@
     [bidict setObject:@"1" forKey:@"1"];
     [bidict setObject:@"2" forKey:@"2"];    
     [bidict setObject:@"3" forKey:@"3"];
-    STAssertEquals([bidict count], (NSUInteger)3, @"bad count");
+    STAssertEquals(bidict.count, (NSUInteger)3, @"bad count");
     [bidict removeAllObjects];
-    STAssertEquals([bidict count], (NSUInteger)0, @"bad count");    
+    STAssertEquals(bidict.count, (NSUInteger)0, @"bad count");    
 }
 
 - (void)testInverseSameInstance {

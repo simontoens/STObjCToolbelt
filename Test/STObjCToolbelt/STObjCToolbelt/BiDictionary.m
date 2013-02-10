@@ -16,6 +16,8 @@
 
 @implementation BiDictionary
 
+@synthesize count;
+
 #pragma mark - Initializers
 
 - (id)init {
@@ -73,6 +75,12 @@
     return [keysToValues objectForKey:key] != nil;
 }
 
+#pragma mark - Properties
+
+- (NSUInteger)count {
+    return [keysToValues count];
+}
+
 #pragma mark - Private methods
 
 - (void)throwException:(NSString *)reason {
@@ -82,10 +90,6 @@
 - (void)removeAllObjects {
     [keysToValues removeAllObjects];
     [valuesToKeys removeAllObjects];
-}
-
-- (NSUInteger)count {
-    return [keysToValues count];
 }
 
 #pragma mark - NSObject impl

@@ -9,6 +9,7 @@
 
 @implementation MultiDictionary
 
+@synthesize count;
 @synthesize dict;
 
 #pragma mark - Initializers
@@ -59,6 +60,8 @@
     }
     return values;
 }
+
+#pragma mark - Properties
 
 - (NSUInteger)count {
     return [dict count];

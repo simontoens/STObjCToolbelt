@@ -59,14 +59,14 @@
     [multiDict setObject:@"b" forKey:@"1"];
     [multiDict setObject:@"a" forKey:@"2"];
     [multiDict setObject:@"c" forKey:@"2"];
-    STAssertEquals([multiDict count], (NSUInteger)2, @"");
+    STAssertEquals(multiDict.count, (NSUInteger)2, @"");
 }
 
 - (void)testRemoveAllObjects {
     [multiDict setObject:@"a" forKey:@"1"];
     [multiDict setObject:@"c" forKey:@"2"];
     [multiDict removeAllObjects];
-    STAssertEquals([multiDict count], (NSUInteger)0, @"");    
+    STAssertEquals(multiDict.count, (NSUInteger)0, @"");    
 }
 
 @end
