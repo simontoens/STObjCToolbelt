@@ -29,13 +29,13 @@
 		BE27355C169A572C00EEF675 /* VarintCoderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE273558169A572C00EEF675 /* VarintCoderTest.m */; };
 		BE27355D169A572C00EEF675 /* XMLBuilderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE27355A169A572C00EEF675 /* XMLBuilderTest.m */; };
 		BE273560169A583600EEF675 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE27355F169A583600EEF675 /* main.m */; };
+		BE823EF416C886770091289A /* BiDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = BE823EF316C886770091289A /* BiDictionary.m */; };
+		BE823EF516C886770091289A /* BiDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = BE823EF316C886770091289A /* BiDictionary.m */; };
 		BEB9D4D116C848AB0089E62C /* NSData+EncodingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB9D4D016C848AB0089E62C /* NSData+EncodingTest.m */; };
 		BEB9D4D916C8561E0089E62C /* Tuple.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB9D4D816C8561E0089E62C /* Tuple.m */; };
 		BEB9D4DA16C8561E0089E62C /* Tuple.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB9D4D816C8561E0089E62C /* Tuple.m */; };
 		BEB9D4DD16C8582B0089E62C /* TupleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB9D4DC16C8582B0089E62C /* TupleTest.m */; };
-		BEED9A3D16B651FD002C7C26 /* BiDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = BEED9A3C16B651FD002C7C26 /* BiDictionary.m */; };
 		BEED9A4116B65322002C7C26 /* BiDictionaryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEED9A4016B65322002C7C26 /* BiDictionaryTest.m */; };
-		BEED9A4216B653B1002C7C26 /* BiDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = BEED9A3C16B651FD002C7C26 /* BiDictionary.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,14 +77,14 @@
 		BE273559169A572C00EEF675 /* XMLBuilderTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLBuilderTest.h; sourceTree = "<group>"; };
 		BE27355A169A572C00EEF675 /* XMLBuilderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLBuilderTest.m; sourceTree = "<group>"; };
 		BE27355F169A583600EEF675 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BE823EF216C886770091289A /* BiDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BiDictionary.h; sourceTree = "<group>"; };
+		BE823EF316C886770091289A /* BiDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BiDictionary.m; sourceTree = "<group>"; };
 		BEB9D4CF16C848AB0089E62C /* NSData+EncodingTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+EncodingTest.h"; sourceTree = "<group>"; };
 		BEB9D4D016C848AB0089E62C /* NSData+EncodingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+EncodingTest.m"; sourceTree = "<group>"; };
 		BEB9D4D716C8561E0089E62C /* Tuple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tuple.h; sourceTree = "<group>"; };
 		BEB9D4D816C8561E0089E62C /* Tuple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tuple.m; sourceTree = "<group>"; };
 		BEB9D4DB16C858180089E62C /* TupleTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TupleTest.h; sourceTree = "<group>"; };
 		BEB9D4DC16C8582B0089E62C /* TupleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TupleTest.m; sourceTree = "<group>"; };
-		BEED9A3B16B651FD002C7C26 /* BiDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BiDictionary.h; sourceTree = "<group>"; };
-		BEED9A3C16B651FD002C7C26 /* BiDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BiDictionary.m; sourceTree = "<group>"; };
 		BEED9A3F16B65322002C7C26 /* BiDictionaryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BiDictionaryTest.h; sourceTree = "<group>"; };
 		BEED9A4016B65322002C7C26 /* BiDictionaryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BiDictionaryTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,8 +146,8 @@
 		BE273517169A562C00EEF675 /* STObjCToolbelt */ = {
 			isa = PBXGroup;
 			children = (
-				BEED9A3B16B651FD002C7C26 /* BiDictionary.h */,
-				BEED9A3C16B651FD002C7C26 /* BiDictionary.m */,
+				BE823EF216C886770091289A /* BiDictionary.h */,
+				BE823EF316C886770091289A /* BiDictionary.m */,
 				BE273540169A567400EEF675 /* MultiDictionary.h */,
 				BE273541169A567400EEF675 /* MultiDictionary.m */,
 				BE273542169A567400EEF675 /* NSData+Encoding.h */,
@@ -316,8 +316,8 @@
 				BE27354D169A567400EEF675 /* VarintCoder.m in Sources */,
 				BE27354E169A567400EEF675 /* XMLBuilder.m in Sources */,
 				BE273560169A583600EEF675 /* main.m in Sources */,
-				BEED9A3D16B651FD002C7C26 /* BiDictionary.m in Sources */,
 				BEB9D4D916C8561E0089E62C /* Tuple.m in Sources */,
+				BE823EF416C886770091289A /* BiDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,7 +325,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEED9A4216B653B1002C7C26 /* BiDictionary.m in Sources */,
 				BE27354F169A56A100EEF675 /* MultiDictionary.m in Sources */,
 				BE273550169A56A100EEF675 /* NSData+Encoding.m in Sources */,
 				BE273551169A56A100EEF675 /* Preconditions.m in Sources */,
@@ -338,6 +337,7 @@
 				BEB9D4D116C848AB0089E62C /* NSData+EncodingTest.m in Sources */,
 				BEB9D4DA16C8561E0089E62C /* Tuple.m in Sources */,
 				BEB9D4DD16C8582B0089E62C /* TupleTest.m in Sources */,
+				BE823EF516C886770091289A /* BiDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
