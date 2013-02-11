@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE19E3E216C88B1F00D05E75 /* BiDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = BE19E3E116C88B1F00D05E75 /* BiDictionary.m */; };
+		BE19E3E316C88B1F00D05E75 /* BiDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = BE19E3E116C88B1F00D05E75 /* BiDictionary.m */; };
 		BE273512169A562C00EEF675 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE273511169A562C00EEF675 /* UIKit.framework */; };
 		BE273514169A562C00EEF675 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE273513169A562C00EEF675 /* Foundation.framework */; };
 		BE273516169A562C00EEF675 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE273515169A562C00EEF675 /* CoreGraphics.framework */; };
@@ -29,8 +31,6 @@
 		BE27355C169A572C00EEF675 /* VarintCoderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE273558169A572C00EEF675 /* VarintCoderTest.m */; };
 		BE27355D169A572C00EEF675 /* XMLBuilderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE27355A169A572C00EEF675 /* XMLBuilderTest.m */; };
 		BE273560169A583600EEF675 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE27355F169A583600EEF675 /* main.m */; };
-		BE823EF416C886770091289A /* BiDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = BE823EF316C886770091289A /* BiDictionary.m */; };
-		BE823EF516C886770091289A /* BiDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = BE823EF316C886770091289A /* BiDictionary.m */; };
 		BEB9D4D116C848AB0089E62C /* NSData+EncodingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB9D4D016C848AB0089E62C /* NSData+EncodingTest.m */; };
 		BEB9D4D916C8561E0089E62C /* Tuple.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB9D4D816C8561E0089E62C /* Tuple.m */; };
 		BEB9D4DA16C8561E0089E62C /* Tuple.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB9D4D816C8561E0089E62C /* Tuple.m */; };
@@ -49,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE19E3E016C88B1F00D05E75 /* BiDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BiDictionary.h; path = ../../../Source/BiDictionary.h; sourceTree = "<group>"; };
+		BE19E3E116C88B1F00D05E75 /* BiDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BiDictionary.m; path = ../../../Source/BiDictionary.m; sourceTree = "<group>"; };
 		BE27350D169A562C00EEF675 /* STObjCToolbelt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = STObjCToolbelt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE273511169A562C00EEF675 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BE273513169A562C00EEF675 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -77,8 +79,6 @@
 		BE273559169A572C00EEF675 /* XMLBuilderTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLBuilderTest.h; sourceTree = "<group>"; };
 		BE27355A169A572C00EEF675 /* XMLBuilderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLBuilderTest.m; sourceTree = "<group>"; };
 		BE27355F169A583600EEF675 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		BE823EF216C886770091289A /* BiDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BiDictionary.h; sourceTree = "<group>"; };
-		BE823EF316C886770091289A /* BiDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BiDictionary.m; sourceTree = "<group>"; };
 		BEB9D4CF16C848AB0089E62C /* NSData+EncodingTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+EncodingTest.h"; sourceTree = "<group>"; };
 		BEB9D4D016C848AB0089E62C /* NSData+EncodingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+EncodingTest.m"; sourceTree = "<group>"; };
 		BEB9D4D716C8561E0089E62C /* Tuple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tuple.h; sourceTree = "<group>"; };
@@ -146,8 +146,8 @@
 		BE273517169A562C00EEF675 /* STObjCToolbelt */ = {
 			isa = PBXGroup;
 			children = (
-				BE823EF216C886770091289A /* BiDictionary.h */,
-				BE823EF316C886770091289A /* BiDictionary.m */,
+				BE19E3E016C88B1F00D05E75 /* BiDictionary.h */,
+				BE19E3E116C88B1F00D05E75 /* BiDictionary.m */,
 				BE273540169A567400EEF675 /* MultiDictionary.h */,
 				BE273541169A567400EEF675 /* MultiDictionary.m */,
 				BE273542169A567400EEF675 /* NSData+Encoding.h */,
@@ -317,7 +317,7 @@
 				BE27354E169A567400EEF675 /* XMLBuilder.m in Sources */,
 				BE273560169A583600EEF675 /* main.m in Sources */,
 				BEB9D4D916C8561E0089E62C /* Tuple.m in Sources */,
-				BE823EF416C886770091289A /* BiDictionary.m in Sources */,
+				BE19E3E216C88B1F00D05E75 /* BiDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,7 +337,7 @@
 				BEB9D4D116C848AB0089E62C /* NSData+EncodingTest.m in Sources */,
 				BEB9D4DA16C8561E0089E62C /* Tuple.m in Sources */,
 				BEB9D4DD16C8582B0089E62C /* TupleTest.m in Sources */,
-				BE823EF516C886770091289A /* BiDictionary.m in Sources */,
+				BE19E3E316C88B1F00D05E75 /* BiDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

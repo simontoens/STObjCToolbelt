@@ -1,9 +1,10 @@
+
 // @author Simon Toens on 07/04/11
 
 #import "BiDictionary.h"
 
 @interface BiDictionary() {
-@private
+    @private
     NSMutableDictionary *keysToValues;
     NSMutableDictionary *valuesToKeys;
     BiDictionary *inverse;
@@ -26,8 +27,7 @@
                              inverse:nil];
 }
 
-- (id)initWithKeysMapping:(NSMutableDictionary *)aKeysToValues valuesMapping:(NSMutableDictionary *)aValuesToKeys inverse:(BiDictionary *)aInverse
-{
+- (id)initWithKeysMapping:(NSMutableDictionary *)aKeysToValues valuesMapping:(NSMutableDictionary *)aValuesToKeys inverse:(BiDictionary *)aInverse {
     if ((self = [super init])) {
         keysToValues = aKeysToValues;
         valuesToKeys = aValuesToKeys;
@@ -75,27 +75,27 @@
     return [keysToValues objectForKey:key] != nil;
 }
 
+- (void)removeAllObjects {
+    [keysToValues removeAllObjects];
+    [valuesToKeys removeAllObjects];
+}
+
 #pragma mark - Properties
 
 - (NSUInteger)count {
     return [keysToValues count];
 }
 
-#pragma mark - Private methods
-
-- (void)throwException:(NSString *)reason {
-    @throw [NSException exceptionWithName:@"BiDictionaryException" reason:reason userInfo:nil];
-}
-
-- (void)removeAllObjects {
-    [keysToValues removeAllObjects];
-    [valuesToKeys removeAllObjects];
-}
-
 #pragma mark - NSObject impl
 
 - (NSString *)description {
     return [keysToValues description];
+}
+
+#pragma mark - Private methods
+
+- (void)throwException:(NSString *)reason {
+    @throw [NSException exceptionWithName:@"BiDictionaryException" reason:reason userInfo:nil];
 }
 
 @end
