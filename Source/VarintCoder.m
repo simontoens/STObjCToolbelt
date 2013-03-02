@@ -12,7 +12,7 @@
 
 @implementation VarintCoder
 
-@synthesize numBitsPerByte;
+@synthesize numBitsPerByte = _numBitsPerByte;
 
 #pragma mark - Public methods
 
@@ -20,7 +20,7 @@
     if (self = [super init]) {
         byteRead = 0;
         decodingInProgressValue = 0;
-        self.numBitsPerByte = 8;
+        _numBitsPerByte = 7;
     }
     return self;
 }
@@ -87,9 +87,9 @@
     for (int i = offset; i < [data length]; i++) {
         uint8_t byteValue = bytes[i];
         BOOL lastByte = YES;
-        if (byteValue & (1 << numBitsPerByte)) {
+        if (byteValue & (1 << self.numBitsPerByte)) {
             lastByte = NO;
-            byteValue &= (1 << numBitsPerByte) - 1;
+            byteValue &= (1 << self.numBitsPerByte) - 1;
         }
         
         // bytes are in order of least significant byte
@@ -122,10 +122,11 @@
 #pragma mark - Properties
 
 - (void)setNumBitsPerByte:(uint8_t)aNumBitsPerByte {
-    // since we always use a full byte, it is a waste to use less tha
+    // since we always use a full byte, it is a waste to set this to less than 8
+    // however, it is useful for some testing
     [Preconditions assertArg:@"Must have at least 2 bits" condition:aNumBitsPerByte >= 2];
     [Preconditions assertArg:@"Must have at most 8 bits" condition:aNumBitsPerByte <= 8];
-    numBitsPerByte = aNumBitsPerByte - 1; // leftmost bit is reserved
+    _numBitsPerByte = aNumBitsPerByte - 1; // leftmost bit is reserved
 }
 
 @end

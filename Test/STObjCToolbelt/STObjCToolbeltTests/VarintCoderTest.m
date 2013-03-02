@@ -124,7 +124,12 @@
     [data appendBytes:garbage length:4];
     STAssertEquals([c decode:data offset:4 numBytesDecoded:&numBytesDecoded doneDecoding:&done], (NSUInteger)10, @"Bad decoded value");
     STAssertEquals(numBytesDecoded, (NSUInteger)4, @"Bad numBytesDecoded");
-    STAssertTrue(done, @"Exepected decode to be done");
+    STAssertTrue(done, @"Expected decode to be done");
+}
+
+- (void)testDefaultNumBitsPerByte {
+    VarintCoder *c = [[VarintCoder alloc] init];
+    STAssertEquals(c.numBitsPerByte, (uint8_t)7, @"Expected default of 7 usable bits per byte");
 }
 
 @end
