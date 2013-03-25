@@ -1,9 +1,9 @@
 // @author Simon Toens 11/09/11
 
+#import <SenTestingKit/SenTestingKit.h>
 #import "MultiDictionary.h"
-#import "MultiDictionaryTest.h"
 
-@interface MultiDictionaryTest()
+@interface MultiDictionaryTest : SenTestCase
 @property (nonatomic, strong) MultiDictionary* multiDict;
 @end
 

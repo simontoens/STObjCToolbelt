@@ -1,7 +1,11 @@
 // @author Simon Toens 6/25/11
 
+#import <SenTestingKit/SenTestingKit.h>
 #import "Tuple.h"
-#import "TupleTest.h"
+
+@interface TupleTest : SenTestCase
+
+@end
 
 @implementation TupleTest
 

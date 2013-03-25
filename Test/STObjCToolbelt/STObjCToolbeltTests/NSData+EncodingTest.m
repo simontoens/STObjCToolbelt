@@ -1,7 +1,11 @@
 // @author Simon Toens 2/10/13
 
+#import <SenTestingKit/SenTestingKit.h>
 #import "NSData+Encoding.h"
-#import "NSData+EncodingTest.h"
+
+@interface NSData_EncodingTest : SenTestCase
+
+@end
 
 @implementation NSData_EncodingTest
 

@@ -1,8 +1,12 @@
 // @author Simon Toens 01/05/13
 
 #import <limits.h>
+#import <SenTestingKit/SenTestingKit.h>
 #import "VarintCoder.h"
-#import "VarintCoderTest.h"
+
+@interface VarintCoderTest : SenTestCase
+
+@end
 
 @implementation VarintCoderTest
 

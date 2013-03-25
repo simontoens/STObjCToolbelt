@@ -1,9 +1,9 @@
 // @author Simon Toens 01/06/13
 
+#import <SenTestingKit/SenTestingKit.h>
 #import "XMLBuilder.h"
-#import "XMLBuilderTest.h"
 
-@interface XMLBuilderTest() {
+@interface XMLBuilderTest : SenTestCase {
 @private
     XMLBuilder *builder;
 }

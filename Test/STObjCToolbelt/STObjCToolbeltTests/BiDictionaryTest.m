@@ -1,9 +1,9 @@
 // @author Simon Toens on 07/04/11
 
-#import "BiDictionaryTest.h"
+#import <SenTestingKit/SenTestingKit.h>
 #import "BiDictionary.h"
 
-@interface BiDictionaryTest() {
+@interface BiDictionaryTest : SenTestCase {
 @private
     BiDictionary* bidict;
 }

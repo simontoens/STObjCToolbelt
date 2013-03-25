@@ -74,18 +74,12 @@
 		BE273547169A567400EEF675 /* VarintCoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VarintCoder.m; path = ../../../Source/VarintCoder.m; sourceTree = "<group>"; };
 		BE273548169A567400EEF675 /* XMLBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLBuilder.h; path = ../../../Source/XMLBuilder.h; sourceTree = "<group>"; };
 		BE273549169A567400EEF675 /* XMLBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLBuilder.m; path = ../../../Source/XMLBuilder.m; sourceTree = "<group>"; };
-		BE273555169A572C00EEF675 /* MultiDictionaryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiDictionaryTest.h; sourceTree = "<group>"; };
 		BE273556169A572C00EEF675 /* MultiDictionaryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiDictionaryTest.m; sourceTree = "<group>"; };
-		BE273557169A572C00EEF675 /* VarintCoderTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VarintCoderTest.h; sourceTree = "<group>"; };
 		BE273558169A572C00EEF675 /* VarintCoderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VarintCoderTest.m; sourceTree = "<group>"; };
-		BE273559169A572C00EEF675 /* XMLBuilderTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLBuilderTest.h; sourceTree = "<group>"; };
 		BE27355A169A572C00EEF675 /* XMLBuilderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLBuilderTest.m; sourceTree = "<group>"; };
 		BE27355F169A583600EEF675 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		BEB9D4CF16C848AB0089E62C /* NSData+EncodingTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+EncodingTest.h"; sourceTree = "<group>"; };
 		BEB9D4D016C848AB0089E62C /* NSData+EncodingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+EncodingTest.m"; sourceTree = "<group>"; };
-		BEB9D4DB16C858180089E62C /* TupleTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TupleTest.h; sourceTree = "<group>"; };
 		BEB9D4DC16C8582B0089E62C /* TupleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TupleTest.m; sourceTree = "<group>"; };
-		BEED9A3F16B65322002C7C26 /* BiDictionaryTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BiDictionaryTest.h; sourceTree = "<group>"; };
 		BEED9A4016B65322002C7C26 /* BiDictionaryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BiDictionaryTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -179,17 +173,11 @@
 		BE27352F169A562C00EEF675 /* STObjCToolbeltTests */ = {
 			isa = PBXGroup;
 			children = (
-				BEED9A3F16B65322002C7C26 /* BiDictionaryTest.h */,
 				BEED9A4016B65322002C7C26 /* BiDictionaryTest.m */,
-				BE273555169A572C00EEF675 /* MultiDictionaryTest.h */,
 				BE273556169A572C00EEF675 /* MultiDictionaryTest.m */,
-				BEB9D4CF16C848AB0089E62C /* NSData+EncodingTest.h */,
 				BEB9D4D016C848AB0089E62C /* NSData+EncodingTest.m */,
 				BEB9D4DC16C8582B0089E62C /* TupleTest.m */,
-				BEB9D4DB16C858180089E62C /* TupleTest.h */,
-				BE273557169A572C00EEF675 /* VarintCoderTest.h */,
 				BE273558169A572C00EEF675 /* VarintCoderTest.m */,
-				BE273559169A572C00EEF675 /* XMLBuilderTest.h */,
 				BE27355A169A572C00EEF675 /* XMLBuilderTest.m */,
 				BE273530169A562C00EEF675 /* Supporting Files */,
 			);
