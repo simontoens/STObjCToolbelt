@@ -10,4 +10,15 @@
     }
 }
 
++ (void)assertNotNil:(id)thing {
+    [Preconditions assertArg:@"nil not allowed" condition:thing != nil];
+}
+
++ (void)assertNotEmpty:(id)collection {
+    [Preconditions assertNotNil:collection];
+    if ([collection respondsToSelector:@selector(count)]) {
+        [Preconditions assertArg:@"count of 0 not allowed" condition:[collection count] > 0];
+    }
+}
+
 @end
