@@ -20,8 +20,6 @@
     for (int i = 0; i < 10; i++) {
         STAssertEquals(bytes[i], ((unsigned char*)data.bytes)[i], @"Bad byte");
     }
-    
-    free(bytes);
 }
 
 - (void)testMD5

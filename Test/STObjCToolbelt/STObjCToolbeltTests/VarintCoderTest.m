@@ -83,7 +83,7 @@
     STAssertEquals([c decode:[c encode:val]], (NSUInteger)val, @"Bad decoded value");
 }
 
-- (void)testCountNumBytesDecodedDecoded {
+- (void)testCountNumBytesDecoded {
     VarintCoder *c = [[VarintCoder alloc] init];
     c.numBitsPerByte = 2;
     NSUInteger numBytesDecoded = 0;
@@ -91,7 +91,7 @@
     STAssertEquals(numBytesDecoded, (NSUInteger)4, @"Bad decoded byte count");
 }
 
-- (void)testdoneDecodingDecoding {
+- (void)testDoneDecoding {
     VarintCoder *c = [[VarintCoder alloc] init];
     c.numBitsPerByte = 2;
     NSUInteger value = 12;
@@ -101,14 +101,14 @@
     for (int i = 0; i < [data length] - 1; i++) {
         NSUInteger numBytesDecoded = 0;
         BOOL doneDecoding = NO;
-        NSData *singleByte = [NSData dataWithBytesNoCopy:(uint8_t[]){bytes[i]} length:1];
+        NSData *singleByte = [NSData dataWithBytesNoCopy:(uint8_t[]){bytes[i]} length:1 freeWhenDone:NO];
         NSUInteger result = [c decode:singleByte offset:0 numBytesDecoded:&numBytesDecoded doneDecoding:&doneDecoding];
         STAssertEquals(result, (NSUInteger)0, @"Decoding not complete");
         STAssertEquals(numBytesDecoded, (NSUInteger)1, @"Bad numBytesDecoded");
         STAssertFalse(doneDecoding, @"Decoding not complete");
     }
     BOOL doneDecoding = NO;
-    NSData *singleByte = [NSData dataWithBytesNoCopy:(uint8_t[]){bytes[3]} length:1];
+    NSData *singleByte = [NSData dataWithBytesNoCopy:(uint8_t[]){bytes[3]} length:1 freeWhenDone:NO];
     NSUInteger result = [c decode:singleByte offset:0 numBytesDecoded:NULL doneDecoding:&doneDecoding];
     STAssertEquals(result, value, @"Bad decoded value");
     STAssertTrue(doneDecoding, @"Decoding complete");    
