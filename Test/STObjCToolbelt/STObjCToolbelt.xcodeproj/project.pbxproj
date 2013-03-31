@@ -23,6 +23,20 @@
 		BE27354D169A567400EEF675 /* VarintCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = BE273547169A567400EEF675 /* VarintCoder.m */; };
 		BE27354E169A567400EEF675 /* XMLBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = BE273549169A567400EEF675 /* XMLBuilder.m */; };
 		BE273560169A583600EEF675 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE27355F169A583600EEF675 /* main.m */; };
+		BEAAEAE1170810BC0029B795 /* BiDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = BE19E3E116C88B1F00D05E75 /* BiDictionary.m */; };
+		BEAAEAE3170810F10029B795 /* MultiDictionaryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE273556169A572C00EEF675 /* MultiDictionaryTest.m */; };
+		BEAAEAE4170810F10029B795 /* NSData+EncodingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB9D4D016C848AB0089E62C /* NSData+EncodingTest.m */; };
+		BEAAEAE5170810F10029B795 /* StackTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB54D421707E3AC002042CD /* StackTest.m */; };
+		BEAAEAE6170810F10029B795 /* TupleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB9D4DC16C8582B0089E62C /* TupleTest.m */; };
+		BEAAEAE7170810F10029B795 /* VarintCoderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE273558169A572C00EEF675 /* VarintCoderTest.m */; };
+		BEAAEAE8170810F10029B795 /* XMLBuilderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE27355A169A572C00EEF675 /* XMLBuilderTest.m */; };
+		BEAAEAE9170811130029B795 /* MultiDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = BE273541169A567400EEF675 /* MultiDictionary.m */; };
+		BEAAEAEA170811130029B795 /* NSData+Encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = BE273543169A567400EEF675 /* NSData+Encoding.m */; };
+		BEAAEAEB170811130029B795 /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB54D5A17080968002042CD /* Stack.m */; };
+		BEAAEAEC170811130029B795 /* Tuple.m in Sources */ = {isa = PBXBuildFile; fileRef = BE19E3E516C892AF00D05E75 /* Tuple.m */; };
+		BEAAEAED170811130029B795 /* VarintCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = BE273547169A567400EEF675 /* VarintCoder.m */; };
+		BEAAEAEE170811130029B795 /* XMLBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = BE273549169A567400EEF675 /* XMLBuilder.m */; };
+		BEAAEAEF1708112A0029B795 /* Preconditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BE273545169A567400EEF675 /* Preconditions.m */; };
 		BEB54D5B17080968002042CD /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB54D5A17080968002042CD /* Stack.m */; };
 		BEB54D5C17080AB9002042CD /* BiDictionaryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEED9A4016B65322002C7C26 /* BiDictionaryTest.m */; };
 /* End PBXBuildFile section */
@@ -309,6 +323,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEAAEAEF1708112A0029B795 /* Preconditions.m in Sources */,
+				BEAAEAE9170811130029B795 /* MultiDictionary.m in Sources */,
+				BEAAEAEA170811130029B795 /* NSData+Encoding.m in Sources */,
+				BEAAEAEB170811130029B795 /* Stack.m in Sources */,
+				BEAAEAEC170811130029B795 /* Tuple.m in Sources */,
+				BEAAEAED170811130029B795 /* VarintCoder.m in Sources */,
+				BEAAEAEE170811130029B795 /* XMLBuilder.m in Sources */,
+				BEAAEAE3170810F10029B795 /* MultiDictionaryTest.m in Sources */,
+				BEAAEAE4170810F10029B795 /* NSData+EncodingTest.m in Sources */,
+				BEAAEAE5170810F10029B795 /* StackTest.m in Sources */,
+				BEAAEAE6170810F10029B795 /* TupleTest.m in Sources */,
+				BEAAEAE7170810F10029B795 /* VarintCoderTest.m in Sources */,
+				BEAAEAE8170810F10029B795 /* XMLBuilderTest.m in Sources */,
+				BEAAEAE1170810BC0029B795 /* BiDictionary.m in Sources */,
 				BEB54D5C17080AB9002042CD /* BiDictionaryTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
