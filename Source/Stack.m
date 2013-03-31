@@ -1,48 +1,48 @@
-//
-//  Stack.m
-//  Maze
-//
-//  Created by Simon Toens on 10/3/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
-//
+// @author Simon Toens 10/03/10
 
+#import "Preconditions.h"
 #import "Stack.h"
 
+@interface Stack() {
+    @private
+    NSMutableArray *elements;
+}
+@end
 
 @implementation Stack
 
 - (id)init {
-    self = [super init];
-	if (self) {
+    if (self = [super init]) {
 	    elements = [[NSMutableArray alloc] init];
 	}
 	return self;
 }
 
-- (bool)isEmpty {
-    return [elements count] == 0;	
-}
-
-- (void)push:(id)element {
-    [elements addObject:element];
-}
-
-- (void)pushAll:(id)someElements {
-    for (id e in someElements) {
-        [self push:e];
-    }
+- (void)push:(id)thing {
+    [elements addObject:thing];
 }
 
 - (id)pop {
 	if ([elements count] == 0) {
-		@throw [NSException exceptionWithName:@"EmptyStackException" reason:@"The stack is empty" userInfo:nil];
+        return nil;
 	}
-	id rtn = [elements objectAtIndex:[elements count] - 1];
+	id rtn = [elements lastObject];
 	[elements removeLastObject];
 	return rtn;
 }
 
-- (int)count {
+- (id)peak {
+    if ([elements count] == 0) {
+        return nil;
+    }
+    return [elements lastObject];
+}
+
+- (BOOL)empty {
+    return [elements count] == 0;
+}
+
+- (NSUInteger)count {
     return [elements count];	
 }
 
