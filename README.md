@@ -11,6 +11,8 @@ NSData+Encoding - Encoding related (Base64, MD5) extension for NSData.
 
 Preconditions - Useful assertions for checking method arguments.
 
+Stack - Push/Pop/Peak.
+
 Tuple - Two things in one.
 
 VarintCoder - Serializes ints to one or more base 128 bytes.

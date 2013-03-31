@@ -4,20 +4,28 @@
 
 @implementation Preconditions
 
-+ (void)assertArg:(NSString *)message condition:(BOOL)condition {
-    if (!condition) {
-        @throw [NSException exceptionWithName:@"InvalidArgumentException" reason:message userInfo:nil];
-    }
++ (void)assertNotNil:(id)thing {
+    [Preconditions assertNotNil:thing message:nil];
 }
 
-+ (void)assertNotNil:(id)thing {
-    [Preconditions assertArg:@"nil not allowed" condition:thing != nil];
++ (void)assertNotNil:(id)thing message:(NSString *)message {
+    [Preconditions assert:thing != nil message:message];
 }
 
 + (void)assertNotEmpty:(id)collection {
+    [Preconditions assertNotEmpty:collection message:nil];
+}
+
++ (void)assertNotEmpty:(id)collection message:(NSString *)message {
     [Preconditions assertNotNil:collection];
     if ([collection respondsToSelector:@selector(count)]) {
-        [Preconditions assertArg:@"count of 0 not allowed" condition:[collection count] > 0];
+        [Preconditions assert:[collection count] > 0 message:message];
+    }
+}
+
++ (void)assert:(BOOL)condition message:(NSString *)message {
+    if (!condition) {
+        @throw [NSException exceptionWithName:@"InvalidArgumentException" reason:message userInfo:nil];
     }
 }
 

@@ -124,8 +124,8 @@
 - (void)setNumBitsPerByte:(uint8_t)aNumBitsPerByte {
     // since we always use a full byte, it is a waste to set this to less than 8
     // however, it is useful for some testing
-    [Preconditions assertArg:@"Must have at least 2 bits" condition:aNumBitsPerByte >= 2];
-    [Preconditions assertArg:@"Must have at most 8 bits" condition:aNumBitsPerByte <= 8];
+    [Preconditions assert:aNumBitsPerByte >= 2 message:@"Must have at least 2 bits"];
+    [Preconditions assert:aNumBitsPerByte <= 8 message:@"Must have at most 8 bits"];
     _numBitsPerByte = aNumBitsPerByte - 1; // leftmost bit is reserved
 }
 

@@ -33,6 +33,9 @@
 		BE27355C169A572C00EEF675 /* VarintCoderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE273558169A572C00EEF675 /* VarintCoderTest.m */; };
 		BE27355D169A572C00EEF675 /* XMLBuilderTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE27355A169A572C00EEF675 /* XMLBuilderTest.m */; };
 		BE273560169A583600EEF675 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE27355F169A583600EEF675 /* main.m */; };
+		BEB54D3E1707E35E002042CD /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB54D3D1707E35E002042CD /* Stack.m */; };
+		BEB54D3F1707E35E002042CD /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB54D3D1707E35E002042CD /* Stack.m */; };
+		BEB54D441707E3AC002042CD /* StackTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB54D421707E3AC002042CD /* StackTest.m */; };
 		BEB9D4D116C848AB0089E62C /* NSData+EncodingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB9D4D016C848AB0089E62C /* NSData+EncodingTest.m */; };
 		BEB9D4DD16C8582B0089E62C /* TupleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB9D4DC16C8582B0089E62C /* TupleTest.m */; };
 		BEED9A4116B65322002C7C26 /* BiDictionaryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEED9A4016B65322002C7C26 /* BiDictionaryTest.m */; };
@@ -78,6 +81,9 @@
 		BE273558169A572C00EEF675 /* VarintCoderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VarintCoderTest.m; sourceTree = "<group>"; };
 		BE27355A169A572C00EEF675 /* XMLBuilderTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLBuilderTest.m; sourceTree = "<group>"; };
 		BE27355F169A583600EEF675 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BEB54D3C1707E35E002042CD /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
+		BEB54D3D1707E35E002042CD /* Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stack.m; sourceTree = "<group>"; };
+		BEB54D421707E3AC002042CD /* StackTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackTest.m; sourceTree = "<group>"; };
 		BEB9D4D016C848AB0089E62C /* NSData+EncodingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+EncodingTest.m"; sourceTree = "<group>"; };
 		BEB9D4DC16C8582B0089E62C /* TupleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TupleTest.m; sourceTree = "<group>"; };
 		BEED9A4016B65322002C7C26 /* BiDictionaryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BiDictionaryTest.m; sourceTree = "<group>"; };
@@ -148,6 +154,8 @@
 				BE273543169A567400EEF675 /* NSData+Encoding.m */,
 				BE273544169A567400EEF675 /* Preconditions.h */,
 				BE273545169A567400EEF675 /* Preconditions.m */,
+				BEB54D3C1707E35E002042CD /* Stack.h */,
+				BEB54D3D1707E35E002042CD /* Stack.m */,
 				BE19E3E416C892AF00D05E75 /* Tuple.h */,
 				BE19E3E516C892AF00D05E75 /* Tuple.m */,
 				BE273546169A567400EEF675 /* VarintCoder.h */,
@@ -176,6 +184,7 @@
 				BEED9A4016B65322002C7C26 /* BiDictionaryTest.m */,
 				BE273556169A572C00EEF675 /* MultiDictionaryTest.m */,
 				BEB9D4D016C848AB0089E62C /* NSData+EncodingTest.m */,
+				BEB54D421707E3AC002042CD /* StackTest.m */,
 				BEB9D4DC16C8582B0089E62C /* TupleTest.m */,
 				BE273558169A572C00EEF675 /* VarintCoderTest.m */,
 				BE27355A169A572C00EEF675 /* XMLBuilderTest.m */,
@@ -306,6 +315,7 @@
 				BE273560169A583600EEF675 /* main.m in Sources */,
 				BE19E3E216C88B1F00D05E75 /* BiDictionary.m in Sources */,
 				BE19E3E616C892AF00D05E75 /* Tuple.m in Sources */,
+				BEB54D3E1707E35E002042CD /* Stack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +336,8 @@
 				BEB9D4DD16C8582B0089E62C /* TupleTest.m in Sources */,
 				BE19E3E316C88B1F00D05E75 /* BiDictionary.m in Sources */,
 				BE19E3E716C892AF00D05E75 /* Tuple.m in Sources */,
+				BEB54D3F1707E35E002042CD /* Stack.m in Sources */,
+				BEB54D441707E3AC002042CD /* StackTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

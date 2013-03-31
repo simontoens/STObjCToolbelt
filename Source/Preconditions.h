@@ -4,8 +4,10 @@
 
 @interface Preconditions : NSObject
 
-+ (void)assertArg:(NSString *)message condition:(BOOL)condition;
 + (void)assertNotNil:(id)thing;
++ (void)assertNotNil:(id)thing message:(NSString *)message;
 + (void)assertNotEmpty:(id)collection;
++ (void)assertNotEmpty:(id)collection message:(NSString *)message;
++ (void)assert:(BOOL)condition message:(NSString *)message;
 
 @end
