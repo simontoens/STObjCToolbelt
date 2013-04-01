@@ -15,6 +15,8 @@ Stack - Push/Pop/Peak.
 
 Tuple - Two things in one.
 
+UIImageView+Reflection - Image reflection effect similar to the album art effect used by Music.app (from Apple sample code).
+
 VarintCoder - Serializes ints to one or more base 128 bytes.
 
 XMLWriter - Easily build simple xml documents.
