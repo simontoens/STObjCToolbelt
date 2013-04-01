@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BE19E3E216C88B1F00D05E75 /* BiDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = BE19E3E116C88B1F00D05E75 /* BiDictionary.m */; };
 		BE19E3E616C892AF00D05E75 /* Tuple.m in Sources */ = {isa = PBXBuildFile; fileRef = BE19E3E516C892AF00D05E75 /* Tuple.m */; };
+		BE26E7DA170939D9000850F2 /* UIImageView+Reflection.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26E7D9170939D9000850F2 /* UIImageView+Reflection.m */; };
 		BE273512169A562C00EEF675 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE273511169A562C00EEF675 /* UIKit.framework */; };
 		BE273514169A562C00EEF675 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE273513169A562C00EEF675 /* Foundation.framework */; };
 		BE273516169A562C00EEF675 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE273515169A562C00EEF675 /* CoreGraphics.framework */; };
@@ -56,6 +57,8 @@
 		BE19E3E116C88B1F00D05E75 /* BiDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BiDictionary.m; path = ../../../Source/BiDictionary.m; sourceTree = "<group>"; };
 		BE19E3E416C892AF00D05E75 /* Tuple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tuple.h; path = ../../../Source/Tuple.h; sourceTree = "<group>"; };
 		BE19E3E516C892AF00D05E75 /* Tuple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tuple.m; path = ../../../Source/Tuple.m; sourceTree = "<group>"; };
+		BE26E7D8170939D9000850F2 /* UIImageView+Reflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+Reflection.h"; path = "../../../Source/UIImageView+Reflection.h"; sourceTree = "<group>"; };
+		BE26E7D9170939D9000850F2 /* UIImageView+Reflection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+Reflection.m"; path = "../../../Source/UIImageView+Reflection.m"; sourceTree = "<group>"; };
 		BE27350D169A562C00EEF675 /* STObjCToolbelt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = STObjCToolbelt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE273511169A562C00EEF675 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BE273513169A562C00EEF675 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -158,6 +161,8 @@
 				BEB54D5917080968002042CD /* Stack.h */,
 				BE19E3E416C892AF00D05E75 /* Tuple.h */,
 				BE19E3E516C892AF00D05E75 /* Tuple.m */,
+				BE26E7D8170939D9000850F2 /* UIImageView+Reflection.h */,
+				BE26E7D9170939D9000850F2 /* UIImageView+Reflection.m */,
 				BE273546169A567400EEF675 /* VarintCoder.h */,
 				BE273547169A567400EEF675 /* VarintCoder.m */,
 				BE273548169A567400EEF675 /* XMLBuilder.h */,
@@ -316,6 +321,7 @@
 				BE19E3E216C88B1F00D05E75 /* BiDictionary.m in Sources */,
 				BE19E3E616C892AF00D05E75 /* Tuple.m in Sources */,
 				BEB54D5B17080968002042CD /* Stack.m in Sources */,
+				BE26E7DA170939D9000850F2 /* UIImageView+Reflection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
