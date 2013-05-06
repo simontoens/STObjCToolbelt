@@ -19,6 +19,12 @@
  */
 - (id)peak;
 
+/**
+ * Return a read-only array containg all items in the stack.  The first item in the array is the 
+ * deepest item in the stack.
+ */
+- (NSArray *)allObjects;
+
 @property(nonatomic, readonly) BOOL empty;
 @property(nonatomic, readonly) NSUInteger count;
 

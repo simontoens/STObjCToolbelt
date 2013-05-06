@@ -44,4 +44,14 @@
     STAssertTrue([stack peak] == nil, @"Expected nil");
 }
 
+- (void)testAllObjects {
+	id thing = [[NSObject alloc] init];
+    [stack push:thing];
+	id otherThing = [[NSObject alloc] init];
+	[stack push:otherThing];
+    NSArray *items = [stack allObjects];
+	STAssertEquals([items objectAtIndex:0], thing, @"Unexpected item");
+    STAssertEquals([items objectAtIndex:1], otherThing, @"Unexpected item");    
+}
+
 @end

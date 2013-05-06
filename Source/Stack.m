@@ -50,4 +50,8 @@
     return [elements description];
 }
 
+- (NSArray *)allObjects {
+    return elements;
+}
+
 @end
