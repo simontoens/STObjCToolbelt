@@ -49,4 +49,10 @@
     return [NSString stringWithFormat:@"(%@, %@)", self.t1, self.t2];
 }
 
+#pragma mark - NSCopying
+
+- (id)copyWithZone:(NSZone *)zone {
+    return [Tuple tupleWithValues:[self.t1 copyWithZone:zone] t2:[self.t2 copyWithZone:zone]];
+}
+
 @end

@@ -1,6 +1,6 @@
 // @author Simon Toens 6/25/11
 
-@interface Tuple : NSObject
+@interface Tuple : NSObject <NSCopying>
 
 + (Tuple *)tupleWithValues:(id)t1 t2:(id)t2;
 

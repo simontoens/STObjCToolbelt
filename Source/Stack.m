@@ -11,6 +11,8 @@
 
 @implementation Stack
 
+#pragma mark - Stack
+
 - (id)init {
     if (self = [super init]) {
 	    elements = [[NSMutableArray alloc] init];
@@ -38,6 +40,12 @@
     return [elements lastObject];
 }
 
+- (NSArray *)allObjects {
+    return elements;
+}
+
+#pragma mark - Properties
+
 - (BOOL)empty {
     return [elements count] == 0;
 }
@@ -46,12 +54,32 @@
     return [elements count];	
 }
 
+#pragma mark - NSObject
+
+- (BOOL)isEqual:(id)object {
+    if (self == object) {
+        return YES;
+    }
+    if (![object isKindOfClass:[Stack class]]) {
+        return NO;
+    }
+    return [elements isEqual:((Stack *)object)->elements];
+}
+
+- (NSUInteger)hash {
+    return [elements hash];
+}
+
 - (NSString *)description {
     return [elements description];
 }
 
-- (NSArray *)allObjects {
-    return elements;
+#pragma mark - NSCopying
+
+- (id)copyWithZone:(NSZone *)zone {
+    Stack *copy = [[Stack alloc] init];
+    copy->elements = [[NSMutableArray alloc] initWithArray:elements copyItems:YES];
+    return copy;
 }
 
 @end

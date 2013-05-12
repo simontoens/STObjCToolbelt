@@ -2,7 +2,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Stack : NSObject
+@interface Stack : NSObject <NSCopying>
 
 /**
  * Push thing onto the stack.  Pushing nil is not allowed.

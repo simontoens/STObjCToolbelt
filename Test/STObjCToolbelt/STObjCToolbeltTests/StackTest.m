@@ -2,6 +2,7 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 #import "Stack.h"
+#import "Tuple.h"
 
 @interface StackTest : SenTestCase {
     Stack *stack;
@@ -42,6 +43,28 @@
 - (void)testPopPeakEmptyStack {
     STAssertTrue([stack pop] == nil, @"Expected nil");
     STAssertTrue([stack peak] == nil, @"Expected nil");
+}
+
+- (void)testEquality {
+    [stack push:@"a"];
+    Stack *stack2 = [[Stack alloc] init];
+    [stack2 push:@"a"];
+	STAssertEqualObjects(stack, stack2, @"stacks are not equal");
+}
+
+- (void)testHashCode {
+    [stack push:@"a"];
+    Stack *stack2 = [[Stack alloc] init];
+    [stack2 push:@"a"];
+	STAssertEquals([stack hash], [stack2 hash], @"stacks don't have the same hash code");
+}
+
+- (void)testCopy {
+    Tuple *t = [Tuple tupleWithValues:@"a" t2:@"b"];
+    [stack push:t];
+    Stack *copy = [stack copy];
+    STAssertEqualObjects(stack, copy, @"Copies should be equal");
+    STAssertFalse([copy pop] == t, @"Copies should be deep");
 }
 
 - (void)testAllObjects {
