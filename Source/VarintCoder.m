@@ -6,8 +6,10 @@
 @interface VarintCoder() {
 @private
     NSUInteger byteRead;
-    NSUInteger decodingInProgressValue;
+    NSInteger decodingInProgressValue;
 }
+- (NSInteger)zigzagEncode:(NSInteger)value;
+- (NSInteger)zigzagDecode:(NSInteger)value;
 @end
 
 @implementation VarintCoder
@@ -25,14 +27,18 @@
     return self;
 }
 
-- (NSData *)encode:(NSUInteger)value {
+- (NSData *)encode:(NSInteger)value {
     NSMutableData *data = [[NSMutableData alloc] init]; // actually init with right size?
     [self encode:value into:data];
     return data;
 }
 
-- (void)encode:(NSUInteger)value into:(NSMutableData *)data {
+- (void)encode:(NSInteger)value into:(NSMutableData *)data {
+    
+    value = [self zigzagEncode:value];
+    
     int bitsRequired = 0;
+        
     int val = value;
     do {
         val >>= 1;
@@ -70,7 +76,7 @@
     [data appendData:[NSData dataWithBytes:(void *)bytes length:numBitGroups]];
 }
 
-- (NSUInteger)decode:(NSData *)data 
+- (NSInteger)decode:(NSData *)data 
               offset:(NSUInteger)offset 
      numBytesDecoded:(NSUInteger *)numBytesDecoded 
         doneDecoding:(BOOL *)doneDecoding 
@@ -106,16 +112,16 @@
             if (doneDecoding) {
                 *doneDecoding = YES;
             }
-            NSUInteger rtn = decodingInProgressValue;
+            NSInteger rtn = decodingInProgressValue;
             decodingInProgressValue = 0;
             byteRead = 0;
-            return rtn;
+            return [self zigzagDecode:rtn];
         }
     }
     return 0;
 }
 
-- (NSUInteger)decode:(NSData *)data {
+- (NSInteger)decode:(NSData *)data {
     return [self decode:data offset:0 numBytesDecoded:NULL doneDecoding:NULL];
 }
 
@@ -123,10 +129,29 @@
 
 - (void)setNumBitsPerByte:(uint8_t)aNumBitsPerByte {
     // since we always use a full byte, it is a waste to set this to less than 8
-    // however, it is useful for some testing
-    [Preconditions assert:aNumBitsPerByte >= 2 message:@"Must have at least 2 bits"];
-    [Preconditions assert:aNumBitsPerByte <= 8 message:@"Must have at most 8 bits"];
+    // however, it is useful for testing
+    [Preconditions assert:aNumBitsPerByte >= 2 message:@"Must at least have 2 bits"];
+    [Preconditions assert:aNumBitsPerByte <= 8 message:@"Must at most have 8 bits"];
     _numBitsPerByte = aNumBitsPerByte - 1; // leftmost bit is reserved
+}
+
+#pragma mark - Private methods
+
+- (NSInteger)zigzagEncode:(NSInteger)value {
+    if (value < 0) {
+        return -value * 2;
+    } else if (value > 0) {
+        return (value * 2) - 1;
+    }
+    return 0;
+}
+
+- (NSInteger)zigzagDecode:(NSInteger)value {
+    if ((value % 2) == 0) {
+        return -(value / 2);
+    } else {
+        return (value + 1) / 2;
+    }
 }
 
 @end
