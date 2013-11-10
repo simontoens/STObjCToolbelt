@@ -4,7 +4,6 @@
 #import "Tuple.h"
 
 @interface TupleTest : SenTestCase
-
 @end
 
 @implementation TupleTest

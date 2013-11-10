@@ -3,20 +3,16 @@
 #import "MultiDictionary.h"
 
 @interface MultiDictionary()
-- (NSMutableSet *)getSetForKey:(id)aKey;
 @property (nonatomic, strong) NSMutableDictionary *dict;
 @end
 
 @implementation MultiDictionary
 
-@synthesize count;
-@synthesize dict;
-
 #pragma mark - Initializers
 
 - (id)init {
     if (self = [super init]) {
-        dict = [[NSMutableDictionary alloc] init];
+        _dict = [[NSMutableDictionary alloc] init];
     }
     return self;
 }
@@ -32,30 +28,30 @@
 }
 
 - (BOOL)containsKey:(id)key {
-    return [dict objectForKey:key] != nil;
+    return [self.dict objectForKey:key] != nil;
 }
 
 - (void)removeValue:(id)aValue {
-    for (NSMutableSet *set in [dict allValues]) {
+    for (NSMutableSet *set in [self.dict allValues]) {
         [set removeObject:aValue];
     }
 }
 
 - (void)removeObjectsForKey:(id)aKey {
-    [dict removeObjectForKey:aKey];
+    [self.dict removeObjectForKey:aKey];
 }
 
 - (void)removeAllObjects {
-    [dict removeAllObjects];
+    [self.dict removeAllObjects];
 }
 
 - (NSArray *)allKeys {
-    return [dict allKeys];
+    return [self.dict allKeys];
 }
 
 - (NSArray *)allValues {
     NSMutableArray *values = [[NSMutableArray alloc] init];
-    for (NSSet *set in [dict allValues]) {
+    for (NSSet *set in [self.dict allValues]) {
         [values addObjectsFromArray:[set allObjects]];
     }
     return values;
@@ -64,16 +60,16 @@
 #pragma mark - Properties
 
 - (NSUInteger)count {
-    return [dict count];
+    return [self.dict count];
 }
 
 #pragma mark - Private methods
 
 - (NSMutableSet *)getSetForKey:(id)aKey {
-    NSMutableSet *set = [dict objectForKey:aKey];
+    NSMutableSet *set = [self.dict objectForKey:aKey];
     if (!set) {
         set = [[NSMutableSet alloc] init];
-        [dict setObject:set forKey:aKey];
+        [self.dict setObject:set forKey:aKey];
     }
     return set;
 }

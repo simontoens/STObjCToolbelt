@@ -4,7 +4,6 @@
 #import "NSData+Encoding.h"
 
 @interface NSData_EncodingTest : SenTestCase
-
 @end
 
 @implementation NSData_EncodingTest

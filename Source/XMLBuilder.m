@@ -7,21 +7,9 @@
 @property (nonatomic, strong) NSMutableArray *elementStack;
 @property (nonatomic, strong) NSMutableArray *markStack;
 @property (nonatomic, strong, readwrite) NSMutableString *xmlDocument;
-- (void)eol;
-- (void)indent;
-- (void)configure;
-- (void)write:(NSString *)elementName attributes:(NSArray *)attributes;
 @end
 
 @implementation XMLBuilder
-
-@synthesize elementStack;
-
-@synthesize configured;
-@synthesize includeXmlProcessingInstruction;
-@synthesize prettyPrint;
-@synthesize markStack;
-@synthesize xmlDocument;
 
 # pragma mark - Public methods
 
@@ -57,7 +45,7 @@
 }
 
 - (void)closeElement {
-    NSString *elementName = [elementStack lastObject];
+    NSString *elementName = [self.elementStack lastObject];
     [self.elementStack removeLastObject];
     [self indent];
     [self.xmlDocument appendFormat:@"</%@>", elementName];
@@ -65,18 +53,18 @@
 }
 
 - (void)closeAllElements {
-    while ([elementStack count] > 0) {
+    while ([self.elementStack count] > 0) {
         [self closeElement];
     }
 }
 
 - (void)mark {
-    [self.markStack addObject:[NSNumber numberWithInt:[elementStack count]]];
+    [self.markStack addObject:[NSNumber numberWithInt:[self.elementStack count]]];
 }
 
 - (void)closeElementsUntilMark {
-    int elementCount = [elementStack count];
-    int mark = [[markStack lastObject] intValue];
+    int elementCount = [self.elementStack count];
+    int mark = [[self.markStack lastObject] intValue];
     [self.markStack removeLastObject];
     for (int i = mark; i < elementCount; i++) {
         [self closeElement];    
@@ -92,7 +80,7 @@
 #pragma mark - Private methods
 
 - (void)write:(NSString *)elementName attributes:(NSArray *)attributes {
-    if (!configured) {
+    if (!self.configured) {
         [self configure];
     }
     [self indent];
@@ -109,31 +97,31 @@
 }
 
 - (void)indent {
-    if (!prettyPrint) {
+    if (!self.prettyPrint) {
         return;
     }
-    for (NSString *element in elementStack) {
+    for (NSString *element in self.elementStack) {
         [self.xmlDocument appendString:@"  "];
     }
 }
 
 - (void)eol {
-    if (!prettyPrint) {
+    if (!self.prettyPrint) {
         return;
     }
     [self.xmlDocument appendString:@"\n"];
 }
 
 - (void)configure {
-    if (includeXmlProcessingInstruction) {
+    if (self.includeXmlProcessingInstruction) {
         [self.xmlDocument appendString:@"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"];
         [self eol];
     }
-    configured = YES;
+    self.configured = YES;
 }
 
 - (NSString *)description {
-    if (!configured) {
+    if (!self.configured) {
         [self configure];
     }
     return self.xmlDocument;    

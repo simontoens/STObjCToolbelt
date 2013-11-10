@@ -5,7 +5,6 @@
 #import "VarintCoder.h"
 
 @interface VarintCoderTest : SenTestCase
-
 @end
 
 @implementation VarintCoderTest

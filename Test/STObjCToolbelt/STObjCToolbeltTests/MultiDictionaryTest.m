@@ -9,45 +9,43 @@
 
 @implementation MultiDictionaryTest
 
-@synthesize multiDict;
-
 - (void)setUp {
     [super setUp];
-    multiDict = [[MultiDictionary alloc] init];
+    self.multiDict = [[MultiDictionary alloc] init];
 }
 
 - (void)testSetMultipleValuesForSingleKey {
-    [multiDict setObject:@"a" forKey:@"1"];
-    [multiDict setObject:@"b" forKey:@"1"];
-    NSSet *set = [multiDict objectsForKey:@"1"];
-    STAssertTrue([multiDict containsKey:@"1"], @"");
+    [self.multiDict setObject:@"a" forKey:@"1"];
+    [self.multiDict setObject:@"b" forKey:@"1"];
+    NSSet *set = [self.multiDict objectsForKey:@"1"];
+    STAssertTrue([self.multiDict containsKey:@"1"], @"");
     STAssertEquals([set count], (NSUInteger)2, @"");
     STAssertTrue([set containsObject:@"a"], @"");
     STAssertTrue([set containsObject:@"b"], @"");
 }
 
 - (void)testDeleteKey {
-    [multiDict setObject:@"a" forKey:@"1"];
-    [multiDict setObject:@"b" forKey:@"1"];
-    [multiDict removeObjectsForKey:@"1"];    
-    STAssertFalse([multiDict containsKey:@"1"], @"");
+    [self.multiDict setObject:@"a" forKey:@"1"];
+    [self.multiDict setObject:@"b" forKey:@"1"];
+    [self.multiDict removeObjectsForKey:@"1"];
+    STAssertFalse([self.multiDict containsKey:@"1"], @"");
 }
 
 - (void)testRemoveValue {
-    [multiDict setObject:@"a" forKey:@"1"];
-    [multiDict setObject:@"b" forKey:@"1"];
-    [multiDict setObject:@"b" forKey:@"2"];
-    [multiDict removeValue:@"b"];
-    STAssertFalse([[multiDict objectsForKey:@"1"] containsObject:@"b"], @"");
-    STAssertFalse([[multiDict objectsForKey:@"2"] containsObject:@"b"], @"");
+    [self.multiDict setObject:@"a" forKey:@"1"];
+    [self.multiDict setObject:@"b" forKey:@"1"];
+    [self.multiDict setObject:@"b" forKey:@"2"];
+    [self.multiDict removeValue:@"b"];
+    STAssertFalse([[self.multiDict objectsForKey:@"1"] containsObject:@"b"], @"");
+    STAssertFalse([[self.multiDict objectsForKey:@"2"] containsObject:@"b"], @"");
 }
 
 - (void)testAllValues {
-    [multiDict setObject:@"a" forKey:@"1"];
-    [multiDict setObject:@"b" forKey:@"1"];
-    [multiDict setObject:@"a" forKey:@"2"];
-    [multiDict setObject:@"c" forKey:@"2"];
-    NSArray *allValues = [multiDict allValues];
+    [self.multiDict setObject:@"a" forKey:@"1"];
+    [self.multiDict setObject:@"b" forKey:@"1"];
+    [self.multiDict setObject:@"a" forKey:@"2"];
+    [self.multiDict setObject:@"c" forKey:@"2"];
+    NSArray *allValues = [self.multiDict allValues];
     STAssertEquals([allValues count], (NSUInteger)4, @"");
     STAssertTrue([allValues containsObject:@"a"], @"");
     STAssertTrue([allValues containsObject:@"b"], @"");
@@ -55,18 +53,18 @@
 }
 
 - (void)testCount {
-    [multiDict setObject:@"a" forKey:@"1"];
-    [multiDict setObject:@"b" forKey:@"1"];
-    [multiDict setObject:@"a" forKey:@"2"];
-    [multiDict setObject:@"c" forKey:@"2"];
-    STAssertEquals(multiDict.count, (NSUInteger)2, @"");
+    [self.multiDict setObject:@"a" forKey:@"1"];
+    [self.multiDict setObject:@"b" forKey:@"1"];
+    [self.multiDict setObject:@"a" forKey:@"2"];
+    [self.multiDict setObject:@"c" forKey:@"2"];
+    STAssertEquals(self.multiDict.count, (NSUInteger)2, @"");
 }
 
 - (void)testRemoveAllObjects {
-    [multiDict setObject:@"a" forKey:@"1"];
-    [multiDict setObject:@"c" forKey:@"2"];
-    [multiDict removeAllObjects];
-    STAssertEquals(multiDict.count, (NSUInteger)0, @"");    
+    [self.multiDict setObject:@"a" forKey:@"1"];
+    [self.multiDict setObject:@"c" forKey:@"2"];
+    [self.multiDict removeAllObjects];
+    STAssertEquals(self.multiDict.count, (NSUInteger)0, @"");
 }
 
 @end

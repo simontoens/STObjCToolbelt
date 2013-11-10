@@ -8,8 +8,6 @@
     NSUInteger byteRead;
     NSInteger decodingInProgressValue;
 }
-- (NSInteger)zigzagEncode:(NSInteger)value;
-- (NSInteger)zigzagDecode:(NSInteger)value;
 @end
 
 @implementation VarintCoder

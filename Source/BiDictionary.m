@@ -1,4 +1,3 @@
-
 // @author Simon Toens on 07/04/11
 
 #import "BiDictionary.h"
@@ -10,14 +9,9 @@
     BiDictionary *inverse;
 }
 
-- (id)initWithKeysMapping:(NSMutableDictionary *)aKeysToValues valuesMapping:(NSMutableDictionary *)aValuesToKeys inverse:(BiDictionary *)inverse;
-- (void)throwException:(NSString *)reason;
-
 @end
 
 @implementation BiDictionary
-
-@synthesize count;
 
 #pragma mark - Initializers
 

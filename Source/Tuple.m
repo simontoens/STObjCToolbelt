@@ -4,8 +4,6 @@
 
 @implementation Tuple
 
-@synthesize t1 = _t1, t2 = _t2;
-
 #pragma mark - Initializers
 
 + (Tuple *)tupleWithValues:(id)t1 t2:(id)t2 {
