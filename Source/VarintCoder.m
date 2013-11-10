@@ -43,9 +43,9 @@
         bitsRequired += 1;
     } while (val != 0);
     
-    int numBitGroups = bitsRequired / self.numBitsPerByte;
+    int numBitGroups = bitsRequired / _numBitsPerByte;
     
-    if ((bitsRequired % self.numBitsPerByte != 0)) {
+    if ((bitsRequired % _numBitsPerByte) != 0) {
         numBitGroups += 1;
     }
     
@@ -55,7 +55,7 @@
     
     while (currentBitGroup > 0) {
         
-        int divisor = 1 << ((currentBitGroup - 1) * self.numBitsPerByte);
+        int divisor = 1 << ((currentBitGroup - 1) * _numBitsPerByte);
         
         // write in order of least significant byte to make decoding easier
         int bitGroupIndex = currentBitGroup - 1;
@@ -63,7 +63,7 @@
         bytes[bitGroupIndex] = value / divisor;
         
         if (bitGroupIndex < (numBitGroups - 1)) {
-            bytes[bitGroupIndex] |= 1 << self.numBitsPerByte;
+            bytes[bitGroupIndex] |= 1 << _numBitsPerByte;
         }
                 
         value = value % divisor;
@@ -91,9 +91,9 @@
     for (int i = offset; i < [data length]; i++) {
         uint8_t byteValue = bytes[i];
         BOOL lastByte = YES;
-        if (byteValue & (1 << self.numBitsPerByte)) {
+        if (byteValue & (1 << _numBitsPerByte)) {
             lastByte = NO;
-            byteValue &= (1 << self.numBitsPerByte) - 1;
+            byteValue &= (1 << _numBitsPerByte) - 1;
         }
         
         // bytes are in order of least significant byte
