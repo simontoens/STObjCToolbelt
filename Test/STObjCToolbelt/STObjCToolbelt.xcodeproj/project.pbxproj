@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BE061BC81831F90600FEEF8F /* AsyncBlockRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = BE061BC71831F90600FEEF8F /* AsyncBlockRunner.m */; };
-		BE061BCA1831F92000FEEF8F /* AsyncBlockRunnerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE061BC91831F92000FEEF8F /* AsyncBlockRunnerTest.m */; };
-		BE061BCB1831F93100FEEF8F /* AsyncBlockRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = BE061BC71831F90600FEEF8F /* AsyncBlockRunner.m */; };
+		BE061BC81831F90600FEEF8F /* BlockRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = BE061BC71831F90600FEEF8F /* BlockRunner.m */; };
+		BE061BCA1831F92000FEEF8F /* BlockRunnerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE061BC91831F92000FEEF8F /* BlockRunnerTest.m */; };
+		BE061BCB1831F93100FEEF8F /* BlockRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = BE061BC71831F90600FEEF8F /* BlockRunner.m */; };
 		BE19E3E216C88B1F00D05E75 /* BiDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = BE19E3E116C88B1F00D05E75 /* BiDictionary.m */; };
 		BE19E3E616C892AF00D05E75 /* Tuple.m in Sources */ = {isa = PBXBuildFile; fileRef = BE19E3E516C892AF00D05E75 /* Tuple.m */; };
 		BE26E7DA170939D9000850F2 /* UIImageView+Reflection.m in Sources */ = {isa = PBXBuildFile; fileRef = BE26E7D9170939D9000850F2 /* UIImageView+Reflection.m */; };
@@ -56,9 +56,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BE061BC61831F90600FEEF8F /* AsyncBlockRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncBlockRunner.h; path = ../../../Source/AsyncBlockRunner.h; sourceTree = "<group>"; };
-		BE061BC71831F90600FEEF8F /* AsyncBlockRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncBlockRunner.m; path = ../../../Source/AsyncBlockRunner.m; sourceTree = "<group>"; };
-		BE061BC91831F92000FEEF8F /* AsyncBlockRunnerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncBlockRunnerTest.m; sourceTree = "<group>"; };
+		BE061BC61831F90600FEEF8F /* BlockRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlockRunner.h; path = ../../../Source/BlockRunner.h; sourceTree = "<group>"; };
+		BE061BC71831F90600FEEF8F /* BlockRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BlockRunner.m; path = ../../../Source/BlockRunner.m; sourceTree = "<group>"; };
+		BE061BC91831F92000FEEF8F /* BlockRunnerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockRunnerTest.m; sourceTree = "<group>"; };
 		BE19E3E016C88B1F00D05E75 /* BiDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BiDictionary.h; path = ../../../Source/BiDictionary.h; sourceTree = "<group>"; };
 		BE19E3E116C88B1F00D05E75 /* BiDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BiDictionary.m; path = ../../../Source/BiDictionary.m; sourceTree = "<group>"; };
 		BE19E3E416C892AF00D05E75 /* Tuple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tuple.h; path = ../../../Source/Tuple.h; sourceTree = "<group>"; };
@@ -155,10 +155,10 @@
 		BE273517169A562C00EEF675 /* STObjCToolbelt */ = {
 			isa = PBXGroup;
 			children = (
-				BE061BC61831F90600FEEF8F /* AsyncBlockRunner.h */,
-				BE061BC71831F90600FEEF8F /* AsyncBlockRunner.m */,
 				BE19E3E016C88B1F00D05E75 /* BiDictionary.h */,
 				BE19E3E116C88B1F00D05E75 /* BiDictionary.m */,
+				BE061BC61831F90600FEEF8F /* BlockRunner.h */,
+				BE061BC71831F90600FEEF8F /* BlockRunner.m */,
 				BE273540169A567400EEF675 /* MultiDictionary.h */,
 				BE273541169A567400EEF675 /* MultiDictionary.m */,
 				BE273542169A567400EEF675 /* NSData+Encoding.h */,
@@ -194,7 +194,7 @@
 		BE27352F169A562C00EEF675 /* STObjCToolbeltTests */ = {
 			isa = PBXGroup;
 			children = (
-				BE061BC91831F92000FEEF8F /* AsyncBlockRunnerTest.m */,
+				BE061BC91831F92000FEEF8F /* BlockRunnerTest.m */,
 				BEED9A4016B65322002C7C26 /* BiDictionaryTest.m */,
 				BE273556169A572C00EEF675 /* MultiDictionaryTest.m */,
 				BEB9D4D016C848AB0089E62C /* NSData+EncodingTest.m */,
@@ -326,7 +326,7 @@
 				BE27354C169A567400EEF675 /* Preconditions.m in Sources */,
 				BE27354D169A567400EEF675 /* VarintCoder.m in Sources */,
 				BE27354E169A567400EEF675 /* XMLBuilder.m in Sources */,
-				BE061BC81831F90600FEEF8F /* AsyncBlockRunner.m in Sources */,
+				BE061BC81831F90600FEEF8F /* BlockRunner.m in Sources */,
 				BE273560169A583600EEF675 /* main.m in Sources */,
 				BE19E3E216C88B1F00D05E75 /* BiDictionary.m in Sources */,
 				BE19E3E616C892AF00D05E75 /* Tuple.m in Sources */,
@@ -339,8 +339,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE061BCB1831F93100FEEF8F /* AsyncBlockRunner.m in Sources */,
-				BE061BCA1831F92000FEEF8F /* AsyncBlockRunnerTest.m in Sources */,
+				BE061BCB1831F93100FEEF8F /* BlockRunner.m in Sources */,
+				BE061BCA1831F92000FEEF8F /* BlockRunnerTest.m in Sources */,
 				BEAAEAEF1708112A0029B795 /* Preconditions.m in Sources */,
 				BEAAEAE9170811130029B795 /* MultiDictionary.m in Sources */,
 				BEAAEAEA170811130029B795 /* NSData+Encoding.m in Sources */,
