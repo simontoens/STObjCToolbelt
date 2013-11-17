@@ -7,7 +7,7 @@
 - (instancetype)init __unavailable;
 - (instancetype)initWithIdentifier:(NSString *)identifier;
 
-- (BlockRunner *)newDeferredAsyncBlockRunner:(NSUInteger)asyncIfNumberOfBlockExceeds;
+- (BlockRunner *)newBlockRunnerAsyncAfterNumberOfBlocksExceeds:(NSUInteger)asyncIfNumberOfBlockExceeds;
 
 - (void)run:(void (^)())block;
 

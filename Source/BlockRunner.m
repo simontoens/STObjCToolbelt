@@ -16,10 +16,10 @@
     [Preconditions assertNotNil:identifier];
     NSString *queueName = [NSString stringWithFormat:@"com.%@.BlockRunnerQueue", identifier];
     dispatch_queue_t q = dispatch_queue_create([queueName cStringUsingEncoding:NSUTF8StringEncoding], DISPATCH_QUEUE_SERIAL);
-    return [self initWithQueue:q asyncIfNumberOfBlocksExceeds:0];
+    return [self initWithQueue:q asyncAfterNumberOfBlocksExceeds:0];
 }
 
-- (instancetype)initWithQueue:(dispatch_queue_t)aQueue asyncIfNumberOfBlocksExceeds:(NSUInteger)aMaxSyncBlocks {
+- (instancetype)initWithQueue:(dispatch_queue_t)aQueue asyncAfterNumberOfBlocksExceeds:(NSUInteger)aMaxSyncBlocks {
     if (self = [super init]) {
         queue = aQueue;
         maxSyncBlocks = aMaxSyncBlocks;
@@ -28,9 +28,8 @@
     return self;
 }
 
-
-- (BlockRunner *)newDeferredAsyncBlockRunner:(NSUInteger)asyncIfNumberOfBlockExceeds {
-    return [self initWithQueue:queue asyncIfNumberOfBlocksExceeds:asyncIfNumberOfBlockExceeds];
+- (BlockRunner *)newBlockRunnerAsyncAfterNumberOfBlocksExceeds:(NSUInteger)asyncIfNumberOfBlockExceeds {
+    return [self initWithQueue:queue asyncAfterNumberOfBlocksExceeds:asyncIfNumberOfBlockExceeds];
 }
 
 - (void)run:(void (^)())block {

@@ -18,7 +18,7 @@
 
 - (void)testRunBlock {
     
-    runner = [runner newDeferredAsyncBlockRunner:1];
+    runner = [runner newBlockRunnerAsyncAfterNumberOfBlocksExceeds:1];
     
     __block int i = 0;
     
@@ -33,7 +33,7 @@
 
 - (void)testRunJobsWithForLoop {
     
-    runner = [runner newDeferredAsyncBlockRunner:3];
+    runner = [runner newBlockRunnerAsyncAfterNumberOfBlocksExceeds:3];
     
     NSMutableArray *widgets = [[NSMutableArray alloc] init];
     
