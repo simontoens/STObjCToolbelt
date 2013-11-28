@@ -30,7 +30,7 @@
 	[stack push:otherThing];
     
 	STAssertEquals(stack.count, (NSUInteger)2, @"Stack size should be 2");
-    STAssertEquals([stack peak], otherThing, @"pushed thing not equal to peaked thing");
+    STAssertEquals([stack peek], otherThing, @"pushed thing not equal to peaked thing");
     STAssertEquals(stack.count, (NSUInteger)2, @"Stack size should be 2");
 	STAssertEquals([stack pop], otherThing, @"pushed thing not equal to popped thing");
     
@@ -42,7 +42,7 @@
 
 - (void)testPopPeakEmptyStack {
     STAssertTrue([stack pop] == nil, @"Expected nil");
-    STAssertTrue([stack peak] == nil, @"Expected nil");
+    STAssertTrue([stack peek] == nil, @"Expected nil");
 }
 
 - (void)testEquality {

@@ -33,7 +33,7 @@
 	return rtn;
 }
 
-- (id)peak {
+- (id)peek {
     if ([elements count] == 0) {
         return nil;
     }
