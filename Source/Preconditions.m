@@ -23,6 +23,11 @@
     }
 }
 
++ (void)fail:(NSString *)message
+{
+    [Preconditions assert:NO message:message];
+}
+
 + (void)assert:(BOOL)condition message:(NSString *)message {
     if (!condition) {
         @throw [NSException exceptionWithName:@"InvalidArgumentException" reason:message userInfo:nil];

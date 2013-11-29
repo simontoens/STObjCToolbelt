@@ -43,6 +43,7 @@
 		BEAAEAEF1708112A0029B795 /* Preconditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BE273545169A567400EEF675 /* Preconditions.m */; };
 		BEB54D5B17080968002042CD /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB54D5A17080968002042CD /* Stack.m */; };
 		BEB54D5C17080AB9002042CD /* BiDictionaryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEED9A4016B65322002C7C26 /* BiDictionaryTest.m */; };
+		BEF84A71184918330045B490 /* PreconditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF84A70184918330045B490 /* PreconditionsTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		BEB9D4D016C848AB0089E62C /* NSData+EncodingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+EncodingTest.m"; sourceTree = "<group>"; };
 		BEB9D4DC16C8582B0089E62C /* TupleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TupleTest.m; sourceTree = "<group>"; };
 		BEED9A4016B65322002C7C26 /* BiDictionaryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BiDictionaryTest.m; sourceTree = "<group>"; };
+		BEF84A70184918330045B490 /* PreconditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreconditionsTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 				BEED9A4016B65322002C7C26 /* BiDictionaryTest.m */,
 				BE273556169A572C00EEF675 /* MultiDictionaryTest.m */,
 				BEB9D4D016C848AB0089E62C /* NSData+EncodingTest.m */,
+				BEF84A70184918330045B490 /* PreconditionsTest.m */,
 				BEB54D421707E3AC002042CD /* StackTest.m */,
 				BEB9D4DC16C8582B0089E62C /* TupleTest.m */,
 				BE273558169A572C00EEF675 /* VarintCoderTest.m */,
@@ -348,6 +351,7 @@
 				BEAAEAEC170811130029B795 /* Tuple.m in Sources */,
 				BEAAEAED170811130029B795 /* VarintCoder.m in Sources */,
 				BEAAEAEE170811130029B795 /* XMLBuilder.m in Sources */,
+				BEF84A71184918330045B490 /* PreconditionsTest.m in Sources */,
 				BEAAEAE3170810F10029B795 /* MultiDictionaryTest.m in Sources */,
 				BEAAEAE4170810F10029B795 /* NSData+EncodingTest.m in Sources */,
 				BEAAEAE5170810F10029B795 /* StackTest.m in Sources */,
