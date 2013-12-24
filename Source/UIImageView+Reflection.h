@@ -4,6 +4,7 @@
 
 @interface UIImageView (Reflection)
 
-- (UIImage *)reflectedImageWithHeight:(NSUInteger)height;
+- (UIImage *)reflectedTopImageWithHeight:(NSUInteger)height;
+- (UIImage *)reflectedBottomImageWithHeight:(NSUInteger)height;
 
 @end

@@ -2,12 +2,14 @@
 
 #import "UIImageView+Reflection.h"
 
+typedef enum direction {kTop, kBottom} direction;
+
 @implementation UIImageView (Reflection)
 
-CGImageRef CreateGradientImage(int pixelsWide, int pixelsHigh);
+CGImageRef CreateGradientImage(int pixelsWide, int pixelsHigh, direction direction);
 CGContextRef MyCreateBitmapContext(int pixelsWide, int pixelsHigh);
 
-CGImageRef CreateGradientImage(int pixelsWide, int pixelsHigh)
+CGImageRef CreateGradientImage(int pixelsWide, int pixelsHigh, direction direction)
 {
 	CGImageRef theCGImage = NULL;
     
@@ -16,11 +18,17 @@ CGImageRef CreateGradientImage(int pixelsWide, int pixelsHigh)
 	
 	// create the bitmap context
 	CGContextRef gradientBitmapContext = CGBitmapContextCreate(NULL, pixelsWide, pixelsHigh,
-															   8, 0, colorSpace, kCGImageAlphaNone);
+															   8, 0, colorSpace, 0);
 	
 	// define the start and end grayscale values (with the alpha, even though
 	// our bitmap context doesn't support alpha the gradient requires it)
 	CGFloat colors[] = {0.0, 1.0, 1.0, 1.0};
+    
+    if (direction == kTop) {
+        CGFloat lastColor = colors[3];
+        colors[3] = colors[0];
+        colors[0] = lastColor;
+    }
 	
 	// create the CGGradient and then release the gray color space
 	CGGradientRef grayScaleGradient = CGGradientCreateWithColorComponents(colorSpace, colors, NULL, 2);
@@ -57,7 +65,15 @@ CGContextRef MyCreateBitmapContext(int pixelsWide, int pixelsHigh)
     return bitmapContext;
 }
 
-- (UIImage *)reflectedImageWithHeight:(NSUInteger)height {
+- (UIImage *)reflectedTopImageWithHeight:(NSUInteger)height {
+    return [self reflectedImageWithHeight:height direction:kTop];
+}
+
+- (UIImage *)reflectedBottomImageWithHeight:(NSUInteger)height {
+    return [self reflectedImageWithHeight:height direction:kBottom];
+}
+
+- (UIImage *)reflectedImageWithHeight:(NSUInteger)height direction:(direction)direction {
     
     if (height == 0) {
 		return nil;
@@ -69,7 +85,7 @@ CGContextRef MyCreateBitmapContext(int pixelsWide, int pixelsHigh)
 	// create a 2 bit CGImage containing a gradient that will be used for masking the 
 	// main view content to create the 'fade' of the reflection.  The CGImageCreateWithMask
 	// function will stretch the bitmap image as required, so we can create a 1 pixel wide gradient
-	CGImageRef gradientMaskImage = CreateGradientImage(1, height);
+	CGImageRef gradientMaskImage = CreateGradientImage(1, height, direction);
 	
 	// create an image by masking the bitmap of the mainView content with the gradient view
 	// then release the  pre-masked content bitmap and the gradient bitmap
@@ -80,9 +96,11 @@ CGContextRef MyCreateBitmapContext(int pixelsWide, int pixelsHigh)
 	// height of the image that we want to capture, then we flip the context so that the image draws upside down.
 	CGContextTranslateCTM(mainViewContentContext, 0.0, height);
 	CGContextScaleCTM(mainViewContentContext, 1.0, -1.0);
+    
+    CGRect imageAreaRect = (direction == kTop ? CGRectMake(0, -self.bounds.size.height + height, self.bounds.size.width, self.bounds.size.height) : self.bounds);
 	
 	// draw the image into the bitmap context
-	CGContextDrawImage(mainViewContentContext, self.bounds, self.image.CGImage);
+	CGContextDrawImage(mainViewContentContext, imageAreaRect, self.image.CGImage);
 	
 	// create CGImageRef of the main view bitmap content, and then release that bitmap context
 	CGImageRef reflectionImage = CGBitmapContextCreateImage(mainViewContentContext);
