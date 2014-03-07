@@ -108,11 +108,11 @@ static const short _base64DecodingTable[256] = {
     char * strResult;
     
     // Get the Raw Data length and ensure we actually have data
-    int intLength = [self length];
+    NSUInteger intLength = [self length];
     if (intLength == 0) return nil;
     
     // Setup the String-based Result placeholder and pointer within that placeholder
-    strResult = (char *)calloc((((intLength + 2) / 3) * 4) + 1, sizeof(char));
+    strResult = calloc((((intLength + 2) / 3) * 4) + 1, sizeof(char));
     objPointer = strResult;
     
     // Iterate through everything
@@ -145,7 +145,11 @@ static const short _base64DecodingTable[256] = {
     *objPointer = '\0';
     
     // Return the results as an NSString object
-    return [NSString stringWithCString:strResult encoding:NSASCIIStringEncoding];
+    NSString *resultString = [NSString stringWithCString:strResult encoding:NSASCIIStringEncoding];
+    
+    free(strResult);
+    
+    return resultString;
 }
 
 - (NSString *)toMD5 {    
