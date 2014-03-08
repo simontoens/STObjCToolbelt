@@ -10,7 +10,7 @@
 
 - (void)testBase64Encoding 
 {
-    unsigned char bytes[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    unsigned char bytes[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
     NSData *data = [NSData dataWithBytes:bytes length:10];
     
     NSString *encoded = [data toBase64Encoding];
@@ -23,7 +23,7 @@
 
 - (void)testMD5
 {
-    unsigned char bytes[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    unsigned char bytes[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
     NSData *data = [NSData dataWithBytes:bytes length:10];
     
     STAssertEqualObjects([data toMD5], [data toMD5], @"Expected equal MD5 string");
