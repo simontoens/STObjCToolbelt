@@ -44,7 +44,6 @@
 		BEB54D5B17080968002042CD /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = BEB54D5A17080968002042CD /* Stack.m */; };
 		BEB54D5C17080AB9002042CD /* BiDictionaryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEED9A4016B65322002C7C26 /* BiDictionaryTest.m */; };
 		BEF84A71184918330045B490 /* PreconditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF84A70184918330045B490 /* PreconditionsTest.m */; };
-		BEF8D8D218D1919E00ECAC91 /* LinkParser.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF8D8D118D1919E00ECAC91 /* LinkParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,8 +98,6 @@
 		BEB9D4DC16C8582B0089E62C /* TupleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TupleTest.m; sourceTree = "<group>"; };
 		BEED9A4016B65322002C7C26 /* BiDictionaryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BiDictionaryTest.m; sourceTree = "<group>"; };
 		BEF84A70184918330045B490 /* PreconditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreconditionsTest.m; sourceTree = "<group>"; };
-		BEF8D8D018D1919E00ECAC91 /* LinkParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkParser.h; sourceTree = "<group>"; };
-		BEF8D8D118D1919E00ECAC91 /* LinkParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,8 +161,6 @@
 				BE19E3E116C88B1F00D05E75 /* BiDictionary.m */,
 				BE061BC61831F90600FEEF8F /* BlockRunner.h */,
 				BE061BC71831F90600FEEF8F /* BlockRunner.m */,
-				BEF8D8D018D1919E00ECAC91 /* LinkParser.h */,
-				BEF8D8D118D1919E00ECAC91 /* LinkParser.m */,
 				BE273540169A567400EEF675 /* MultiDictionary.h */,
 				BE273541169A567400EEF675 /* MultiDictionary.m */,
 				BE273542169A567400EEF675 /* NSData+Encoding.h */,
@@ -331,7 +326,6 @@
 			files = (
 				BE27354A169A567400EEF675 /* MultiDictionary.m in Sources */,
 				BE27354B169A567400EEF675 /* NSData+Encoding.m in Sources */,
-				BEF8D8D218D1919E00ECAC91 /* LinkParser.m in Sources */,
 				BE27354C169A567400EEF675 /* Preconditions.m in Sources */,
 				BE27354D169A567400EEF675 /* VarintCoder.m in Sources */,
 				BE27354E169A567400EEF675 /* XMLBuilder.m in Sources */,
