@@ -100,7 +100,7 @@
     if (!self.prettyPrint) {
         return;
     }
-    for (NSString *element in self.elementStack) {
+    for (NSUInteger i = 0; i < [self.elementStack count]; i++) {
         [self.xmlDocument appendString:@"  "];
     }
 }
