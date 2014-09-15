@@ -6,10 +6,10 @@ typedef enum direction {kTop, kBottom} direction;
 
 @implementation UIImageView (Reflection)
 
-CGImageRef CreateGradientImage(int pixelsWide, int pixelsHigh, direction direction);
-CGContextRef MyCreateBitmapContext(int pixelsWide, int pixelsHigh);
+CGImageRef CreateGradientImage(NSUInteger pixelsWide, NSUInteger pixelsHigh, direction direction);
+CGContextRef MyCreateBitmapContext(NSUInteger pixelsWide, NSUInteger pixelsHigh);
 
-CGImageRef CreateGradientImage(int pixelsWide, int pixelsHigh, direction direction)
+CGImageRef CreateGradientImage(NSUInteger pixelsWide, NSUInteger pixelsHigh, direction direction)
 {
 	CGImageRef theCGImage = NULL;
     
@@ -51,15 +51,15 @@ CGImageRef CreateGradientImage(int pixelsWide, int pixelsHigh, direction directi
     return theCGImage;
 }
 
-CGContextRef MyCreateBitmapContext(int pixelsWide, int pixelsHigh)
+CGContextRef MyCreateBitmapContext(NSUInteger pixelsWide, NSUInteger pixelsHigh)
 {
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
 	
 	// create the bitmap context
-	CGContextRef bitmapContext = CGBitmapContextCreate (NULL, pixelsWide, pixelsHigh, 8,
-														0, colorSpace,
-														// this will give us an optimal BGRA format for the device:
-														(kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst));
+	CGContextRef bitmapContext = CGBitmapContextCreate(NULL, pixelsWide, pixelsHigh, 8,
+													   0, colorSpace,
+													   // this will give us an optimal BGRA format for the device:
+                                                       (kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst));
 	CGColorSpaceRelease(colorSpace);
     
     return bitmapContext;
@@ -80,7 +80,7 @@ CGContextRef MyCreateBitmapContext(int pixelsWide, int pixelsHigh)
     }
     
 	// create a bitmap graphics context the size of the image
-	CGContextRef mainViewContentContext = MyCreateBitmapContext(self.bounds.size.width, height);
+	CGContextRef mainViewContentContext = MyCreateBitmapContext((NSUInteger)self.bounds.size.width, height);
 	
 	// create a 2 bit CGImage containing a gradient that will be used for masking the 
 	// main view content to create the 'fade' of the reflection.  The CGImageCreateWithMask

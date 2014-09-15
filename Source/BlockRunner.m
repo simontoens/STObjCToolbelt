@@ -5,8 +5,8 @@
 
 @interface BlockRunner() {
     dispatch_queue_t queue;
-    int numBlocksExecuted;
-    int maxSyncBlocks;
+    NSUInteger numBlocksExecuted;
+    NSUInteger maxSyncBlocks;
 }
 @end
 

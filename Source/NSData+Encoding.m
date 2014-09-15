@@ -28,9 +28,9 @@ static const short _base64DecodingTable[256] = {
 // Code from http://stackoverflow.com/questions/392464/any-base64-library-on-iphone-sdk
 + (NSData *)dataWithBase64EncodedString:(NSString *)strBase64 {
     const char * objPointer = [strBase64 cStringUsingEncoding:NSASCIIStringEncoding];
-    int intLength = strlen(objPointer);
+    size_t intLength = strlen(objPointer);
     int intCurrent;
-    int i = 0, j = 0, k;
+    NSUInteger i = 0, j = 0, k;
     
     unsigned char * objResult;
     objResult = calloc(intLength, sizeof(unsigned char));
@@ -58,17 +58,17 @@ static const short _base64DecodingTable[256] = {
         
         switch (i % 4) {
             case 0:
-                objResult[j] = intCurrent << 2;
+                objResult[j] = (unsigned char)(intCurrent << 2);
                 break;
                 
             case 1:
                 objResult[j++] |= intCurrent >> 4;
-                objResult[j] = (intCurrent & 0x0f) << 4;
+                objResult[j] = (unsigned char)((intCurrent & 0x0f) << 4);
                 break;
                 
             case 2:
                 objResult[j++] |= intCurrent >>2;
-                objResult[j] = (intCurrent & 0x03) << 6;
+                objResult[j] = (unsigned char)((intCurrent & 0x03) << 6);
                 break;
                 
             case 3:

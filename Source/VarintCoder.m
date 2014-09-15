@@ -35,7 +35,7 @@
     
     value = [self zigzagEncode:value];
     
-    int bitsRequired = 0;
+    NSUInteger bitsRequired = 0;
         
     int val = value;
     do {
@@ -43,24 +43,24 @@
         bitsRequired += 1;
     } while (val != 0);
     
-    int numBitGroups = bitsRequired / _numBitsPerByte;
+    NSUInteger numBitGroups = bitsRequired / _numBitsPerByte;
     
     if ((bitsRequired % _numBitsPerByte) != 0) {
         numBitGroups += 1;
     }
     
-    int currentBitGroup = numBitGroups;
+    NSUInteger currentBitGroup = numBitGroups;
     
     uint8_t bytes[numBitGroups];
     
     while (currentBitGroup > 0) {
         
-        int divisor = 1 << ((currentBitGroup - 1) * _numBitsPerByte);
+        NSInteger divisor = 1 << ((currentBitGroup - 1) * _numBitsPerByte);
         
         // write in order of least significant byte to make decoding easier
-        int bitGroupIndex = currentBitGroup - 1;
+        NSUInteger bitGroupIndex = currentBitGroup - 1;
         
-        bytes[bitGroupIndex] = value / divisor;
+        bytes[bitGroupIndex] = (uint8_t)(value / divisor);
         
         if (bitGroupIndex < (numBitGroups - 1)) {
             bytes[bitGroupIndex] |= 1 << _numBitsPerByte;
@@ -88,7 +88,7 @@
     if (doneDecoding) {
         *doneDecoding = NO;
     }
-    for (int i = offset; i < [data length]; i++) {
+    for (NSUInteger i = offset; i < [data length]; i++) {
         uint8_t byteValue = bytes[i];
         BOOL lastByte = YES;
         if (byteValue & (1 << _numBitsPerByte)) {

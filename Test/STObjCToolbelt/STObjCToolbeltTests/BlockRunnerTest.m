@@ -42,7 +42,7 @@
     }
     
     XCTAssertEqual([widgets count], (NSUInteger)3, @"Expected sync blocks to have run");
-    for (int i = 0; i < 3; i++) {
+    for (NSUInteger i = 0; i < 3; i++) {
         NSString *expected = [NSString stringWithFormat:@"Got %i", i];
         XCTAssertEqualObjects([widgets objectAtIndex:i], expected, @"Bad widget");
     }

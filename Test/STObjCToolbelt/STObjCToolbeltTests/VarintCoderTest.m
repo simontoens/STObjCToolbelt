@@ -101,22 +101,22 @@
 - (void)testDoneDecoding {
     VarintCoder *c = [[VarintCoder alloc] init];
     c.numBitsPerByte = 2;
-    NSUInteger value = 8;
+    NSInteger value = 8;
     NSData *data = [c encode:value];
     XCTAssertEqual([data length], (NSUInteger)4, @"Unexpected length");
     const uint8_t *bytes = [data bytes];
-    for (int i = 0; i < [data length] - 1; i++) {
+    for (NSUInteger i = 0; i < [data length] - 1; i++) {
         NSUInteger numBytesDecoded = 0;
         BOOL doneDecoding = NO;
         NSData *singleByte = [NSData dataWithBytesNoCopy:(uint8_t[]){bytes[i]} length:1 freeWhenDone:NO];
-        NSUInteger result = [c decode:singleByte offset:0 numBytesDecoded:&numBytesDecoded doneDecoding:&doneDecoding];
-        XCTAssertEqual(result, (NSUInteger)0, @"Decoding not complete");
+        NSInteger result = [c decode:singleByte offset:0 numBytesDecoded:&numBytesDecoded doneDecoding:&doneDecoding];
+        XCTAssertEqual(result, (NSInteger)0, @"Decoding not complete");
         XCTAssertEqual(numBytesDecoded, (NSUInteger)1, @"Bad numBytesDecoded");
         XCTAssertFalse(doneDecoding, @"Decoding not complete");
     }
     BOOL doneDecoding = NO;
     NSData *singleByte = [NSData dataWithBytesNoCopy:(uint8_t[]){bytes[3]} length:1 freeWhenDone:NO];
-    NSUInteger result = [c decode:singleByte offset:0 numBytesDecoded:NULL doneDecoding:&doneDecoding];
+    NSInteger result = [c decode:singleByte offset:0 numBytesDecoded:NULL doneDecoding:&doneDecoding];
     XCTAssertEqual(result, value, @"Bad decoded value");
     XCTAssertTrue(doneDecoding, @"Decoding complete");    
 }

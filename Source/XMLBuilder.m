@@ -59,14 +59,14 @@
 }
 
 - (void)mark {
-    [self.markStack addObject:[NSNumber numberWithInt:[self.elementStack count]]];
+    [self.markStack addObject:[NSNumber numberWithUnsignedLong:[self.elementStack count]]];
 }
 
 - (void)closeElementsUntilMark {
-    int elementCount = [self.elementStack count];
-    int mark = [[self.markStack lastObject] intValue];
+    NSUInteger elementCount = [self.elementStack count];
+    NSUInteger mark = [[self.markStack lastObject] unsignedLongValue];
     [self.markStack removeLastObject];
-    for (int i = mark; i < elementCount; i++) {
+    for (NSUInteger i = mark; i < elementCount; i++) {
         [self closeElement];    
     }
 }
@@ -86,7 +86,7 @@
     [self indent];
     [self.xmlDocument appendFormat:@"<%@", elementName];
     if (attributes) {
-        for (int i = 0; i < [attributes count]; i+=2) {
+        for (NSUInteger i = 0; i < [attributes count]; i+=2) {
             [self.xmlDocument appendString:@" "];
             [self.xmlDocument appendFormat:@"%@=\"%@\"", [attributes objectAtIndex:i], [attributes objectAtIndex:i+1]];
         }

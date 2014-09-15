@@ -37,8 +37,8 @@
 }
 
 - (NSUInteger)hash {
-    static int prime = 31;
-    int result = prime + [self.t1 hash];
+    static NSUInteger prime = 31;
+    NSUInteger result = prime + [self.t1 hash];
     result = prime * result + [self.t2 hash];
     return result;
 }
