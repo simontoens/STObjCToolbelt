@@ -1,9 +1,9 @@
 // @author Simon Toens 11/29/13
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 #import "Preconditions.h"
 
-@interface PreconditionsTest : SenTestCase
+@interface PreconditionsTest : XCTestCase
 
 @end
 
@@ -13,10 +13,10 @@
 {
     @try {
         [Preconditions fail:@"error"];
-        STFail(@"Expected exception to be thrown");
+        XCTFail(@"Expected exception to be thrown");
     }
     @catch (NSException *expected) {
-        STAssertTrue(YES, @"expected");
+        XCTAssertTrue(YES, @"expected");
     }
 }
 

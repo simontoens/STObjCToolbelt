@@ -18,7 +18,6 @@
 		BE273514169A562C00EEF675 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE273513169A562C00EEF675 /* Foundation.framework */; };
 		BE273516169A562C00EEF675 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE273515169A562C00EEF675 /* CoreGraphics.framework */; };
 		BE27351C169A562C00EEF675 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE27351A169A562C00EEF675 /* InfoPlist.strings */; };
-		BE27352A169A562C00EEF675 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE273529169A562C00EEF675 /* SenTestingKit.framework */; };
 		BE27352B169A562C00EEF675 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE273511169A562C00EEF675 /* UIKit.framework */; };
 		BE27352C169A562C00EEF675 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE273513169A562C00EEF675 /* Foundation.framework */; };
 		BE273534169A562C00EEF675 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE273532169A562C00EEF675 /* InfoPlist.strings */; };
@@ -75,8 +74,7 @@
 		BE273519169A562C00EEF675 /* STObjCToolbelt-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "STObjCToolbelt-Info.plist"; sourceTree = "<group>"; };
 		BE27351B169A562C00EEF675 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BE27351F169A562C00EEF675 /* STObjCToolbelt-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "STObjCToolbelt-Prefix.pch"; sourceTree = "<group>"; };
-		BE273528169A562C00EEF675 /* STObjCToolbeltTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = STObjCToolbeltTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE273529169A562C00EEF675 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		BE273528169A562C00EEF675 /* STObjCToolbeltTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = STObjCToolbeltTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE273531169A562C00EEF675 /* STObjCToolbeltTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "STObjCToolbeltTests-Info.plist"; sourceTree = "<group>"; };
 		BE273533169A562C00EEF675 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BE273540169A567400EEF675 /* MultiDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MultiDictionary.h; path = ../../../Source/MultiDictionary.h; sourceTree = "<group>"; };
@@ -117,7 +115,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE27352A169A562C00EEF675 /* SenTestingKit.framework in Frameworks */,
 				BE27352B169A562C00EEF675 /* UIKit.framework in Frameworks */,
 				BE27352C169A562C00EEF675 /* Foundation.framework in Frameworks */,
 			);
@@ -141,7 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				BE27350D169A562C00EEF675 /* STObjCToolbelt.app */,
-				BE273528169A562C00EEF675 /* STObjCToolbeltTests.octest */,
+				BE273528169A562C00EEF675 /* STObjCToolbeltTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -152,7 +149,6 @@
 				BE273511169A562C00EEF675 /* UIKit.framework */,
 				BE273513169A562C00EEF675 /* Foundation.framework */,
 				BE273515169A562C00EEF675 /* CoreGraphics.framework */,
-				BE273529169A562C00EEF675 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -258,8 +254,8 @@
 			);
 			name = STObjCToolbeltTests;
 			productName = STObjCToolbeltTests;
-			productReference = BE273528169A562C00EEF675 /* STObjCToolbeltTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = BE273528169A562C00EEF675 /* STObjCToolbeltTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -267,6 +263,7 @@
 		BE273504169A562B00EEF675 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastTestingUpgradeCheck = 0510;
 				LastUpgradeCheck = 0420;
 			};
 			buildConfigurationList = BE273507169A562B00EEF675 /* Build configuration list for PBXProject "STObjCToolbelt" */;
@@ -472,13 +469,12 @@
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/STObjCToolbelt.app/STObjCToolbelt";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "STObjCToolbelt/STObjCToolbelt-Prefix.pch";
 				INFOPLIST_FILE = "STObjCToolbeltTests/STObjCToolbeltTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -488,13 +484,12 @@
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/STObjCToolbelt.app/STObjCToolbelt";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "STObjCToolbelt/STObjCToolbelt-Prefix.pch";
 				INFOPLIST_FILE = "STObjCToolbeltTests/STObjCToolbeltTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};

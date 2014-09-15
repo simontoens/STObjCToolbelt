@@ -1,9 +1,9 @@
 // @author Simon Toens on 07/04/11
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 #import "BlockRunner.h"
 
-@interface BlockRunnerTest : SenTestCase {
+@interface BlockRunnerTest : XCTestCase {
     @private
     BlockRunner *runner;
 }
@@ -28,7 +28,7 @@
     
     [runner run:myblock];
     
-    STAssertEquals(1, i, @"Expected block to have run");
+    XCTAssertEqual(1, i, @"Expected block to have run");
 }
 
 - (void)testRunJobsWithForLoop {
@@ -41,10 +41,10 @@
         [runner run:^{[self doStuff:i container:widgets];}];
     }
     
-    STAssertEquals([widgets count], (NSUInteger)3, @"Expected sync blocks to have run");
+    XCTAssertEqual([widgets count], (NSUInteger)3, @"Expected sync blocks to have run");
     for (int i = 0; i < 3; i++) {
         NSString *expected = [NSString stringWithFormat:@"Got %i", i];
-        STAssertEqualObjects([widgets objectAtIndex:i], expected, @"Bad widget");
+        XCTAssertEqualObjects([widgets objectAtIndex:i], expected, @"Bad widget");
     }
 }
 

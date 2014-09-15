@@ -1,9 +1,9 @@
 // @author Simon Toens 2/10/13
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 #import "NSData+Encoding.h"
 
-@interface NSData_EncodingTest : SenTestCase
+@interface NSData_EncodingTest : XCTestCase
 @end
 
 @implementation NSData_EncodingTest
@@ -17,7 +17,7 @@
     data = [NSData dataWithBase64EncodedString:encoded];
     
     for (int i = 0; i < 10; i++) {
-        STAssertEquals(bytes[i], ((unsigned char*)data.bytes)[i], @"Bad byte");
+        XCTAssertEqual(bytes[i], ((unsigned char*)data.bytes)[i], @"Bad byte");
     }
 }
 
@@ -26,10 +26,10 @@
     unsigned char bytes[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
     NSData *data = [NSData dataWithBytes:bytes length:10];
     
-    STAssertEqualObjects([data toMD5], [data toMD5], @"Expected equal MD5 string");
+    XCTAssertEqualObjects([data toMD5], [data toMD5], @"Expected equal MD5 string");
     
     NSData *data2 = [NSData dataWithBytes:bytes length:9];
-    STAssertFalse([data isEqual:data2], @"Did not expected MD5 strings to be equal");
+    XCTAssertFalse([data isEqual:data2], @"Did not expected MD5 strings to be equal");
 }
 
 @end

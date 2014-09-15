@@ -1,10 +1,10 @@
 // @author Simon Toens 01/05/13
 
 #import <limits.h>
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 #import "VarintCoder.h"
 
-@interface VarintCoderTest : SenTestCase
+@interface VarintCoderTest : XCTestCase
 @end
 
 @implementation VarintCoderTest
@@ -14,15 +14,15 @@
     expectedValues:(int[])expectedValues 
    expectedNumBits:(int)expectedNumBits 
 {
-    STAssertEquals([data length], (NSUInteger)expectedLength, @"Unexpected data length");
+    XCTAssertEqual([data length], (NSUInteger)expectedLength, @"Unexpected data length");
     const uint8_t *bytes = [data bytes];
     for (uint8_t i = 0; i < expectedLength; i++) {
         uint8_t value = bytes[i];
         if (i < (expectedLength - 1)) {
-            STAssertTrue(value & 1 << (expectedNumBits - 1), @"Expected leftmost bit to be on");
+            XCTAssertTrue(value & 1 << (expectedNumBits - 1), @"Expected leftmost bit to be on");
             value &= (1 << ((expectedNumBits - 1) - 1));
         }
-        STAssertEquals(value, (uint8_t)expectedValues[i], @"Unexpected data value for byte at %i", i);        
+        XCTAssertEqual(value, (uint8_t)expectedValues[i], @"Unexpected data value for byte at %i", i);        
     }
 }
 
@@ -56,22 +56,22 @@
     VarintCoder *c = [[VarintCoder alloc] init];
     c.numBitsPerByte = 2;
     
-    STAssertEquals([c decode:[c encode:0]], 0, @"Bad decoded value");
-    STAssertEquals([c decode:[c encode:1]], 1, @"Bad decoded value");
+    XCTAssertEqual([c decode:[c encode:0]], 0, @"Bad decoded value");
+    XCTAssertEqual([c decode:[c encode:1]], 1, @"Bad decoded value");
 }
 
 - (void)testDecodeMultipleBytes {
     VarintCoder *c = [[VarintCoder alloc] init];
     c.numBitsPerByte = 2;
     
-    STAssertEquals([c decode:[c encode:2]], 2, @"Bad decoded value");
-    STAssertEquals([c decode:[c encode:3]], 3, @"Bad decoded value");
-    STAssertEquals([c decode:[c encode:4]], 4, @"Bad decoded value");
-    STAssertEquals([c decode:[c encode:-4]], -4, @"Bad decoded value");
-    STAssertEquals([c decode:[c encode:5]],  5, @"Bad decoded value");
-    STAssertEquals([c decode:[c encode:-5]], -5, @"Bad decoded value");
-    STAssertEquals([c decode:[c encode:8]], 8, @"Bad decoded value");    
-    STAssertEquals([c decode:[c encode:-8]], -8, @"Bad decoded value");
+    XCTAssertEqual([c decode:[c encode:2]], 2, @"Bad decoded value");
+    XCTAssertEqual([c decode:[c encode:3]], 3, @"Bad decoded value");
+    XCTAssertEqual([c decode:[c encode:4]], 4, @"Bad decoded value");
+    XCTAssertEqual([c decode:[c encode:-4]], -4, @"Bad decoded value");
+    XCTAssertEqual([c decode:[c encode:5]],  5, @"Bad decoded value");
+    XCTAssertEqual([c decode:[c encode:-5]], -5, @"Bad decoded value");
+    XCTAssertEqual([c decode:[c encode:8]], 8, @"Bad decoded value");    
+    XCTAssertEqual([c decode:[c encode:-8]], -8, @"Bad decoded value");
 }
 
 - (void)testDecodeMultipleBytesWithGarbageAtEndOfNSData {
@@ -81,13 +81,13 @@
     NSMutableData *data = [NSMutableData dataWithData:[c encode:10]];
     uint8_t garbage[] = {122, 20, 10, 22};
     [data appendBytes:garbage length:4];
-    STAssertEquals([c decode:data], 10, @"Bad decoded value");    
+    XCTAssertEqual([c decode:data], 10, @"Bad decoded value");    
 }
 
 - (void)testDecodeLargeValue {
     VarintCoder *c = [[VarintCoder alloc] init];
     int val = 2000001;
-    STAssertEquals([c decode:[c encode:val]], val, @"Bad decoded value");
+    XCTAssertEqual([c decode:[c encode:val]], val, @"Bad decoded value");
 }
 
 - (void)testCountNumBytesDecoded {
@@ -95,7 +95,7 @@
     c.numBitsPerByte = 2;
     NSUInteger numBytesDecoded = 0;
     [c decode:[c encode:8] offset:0 numBytesDecoded:&numBytesDecoded doneDecoding:NULL];
-    STAssertEquals(numBytesDecoded, (NSUInteger)4, @"Bad decoded byte count");
+    XCTAssertEqual(numBytesDecoded, (NSUInteger)4, @"Bad decoded byte count");
 }
 
 - (void)testDoneDecoding {
@@ -103,22 +103,22 @@
     c.numBitsPerByte = 2;
     NSUInteger value = 8;
     NSData *data = [c encode:value];
-    STAssertEquals([data length], (NSUInteger)4, @"Unexpected length");
+    XCTAssertEqual([data length], (NSUInteger)4, @"Unexpected length");
     const uint8_t *bytes = [data bytes];
     for (int i = 0; i < [data length] - 1; i++) {
         NSUInteger numBytesDecoded = 0;
         BOOL doneDecoding = NO;
         NSData *singleByte = [NSData dataWithBytesNoCopy:(uint8_t[]){bytes[i]} length:1 freeWhenDone:NO];
         NSUInteger result = [c decode:singleByte offset:0 numBytesDecoded:&numBytesDecoded doneDecoding:&doneDecoding];
-        STAssertEquals(result, (NSUInteger)0, @"Decoding not complete");
-        STAssertEquals(numBytesDecoded, (NSUInteger)1, @"Bad numBytesDecoded");
-        STAssertFalse(doneDecoding, @"Decoding not complete");
+        XCTAssertEqual(result, (NSUInteger)0, @"Decoding not complete");
+        XCTAssertEqual(numBytesDecoded, (NSUInteger)1, @"Bad numBytesDecoded");
+        XCTAssertFalse(doneDecoding, @"Decoding not complete");
     }
     BOOL doneDecoding = NO;
     NSData *singleByte = [NSData dataWithBytesNoCopy:(uint8_t[]){bytes[3]} length:1 freeWhenDone:NO];
     NSUInteger result = [c decode:singleByte offset:0 numBytesDecoded:NULL doneDecoding:&doneDecoding];
-    STAssertEquals(result, value, @"Bad decoded value");
-    STAssertTrue(doneDecoding, @"Decoding complete");    
+    XCTAssertEqual(result, value, @"Bad decoded value");
+    XCTAssertTrue(doneDecoding, @"Decoding complete");    
 }
 
 - (void)testOffset {
@@ -133,14 +133,14 @@
     [data appendBytes:garbage length:4];
     [data appendData:encodedData];
     [data appendBytes:garbage length:4];
-    STAssertEquals([c decode:data offset:4 numBytesDecoded:&numBytesDecoded doneDecoding:&done], 8, @"Bad decoded value");
-    STAssertEquals(numBytesDecoded, (NSUInteger)4, @"Bad numBytesDecoded");
-    STAssertTrue(done, @"Expected decode to be done");
+    XCTAssertEqual([c decode:data offset:4 numBytesDecoded:&numBytesDecoded doneDecoding:&done], 8, @"Bad decoded value");
+    XCTAssertEqual(numBytesDecoded, (NSUInteger)4, @"Bad numBytesDecoded");
+    XCTAssertTrue(done, @"Expected decode to be done");
 }
 
 - (void)testDefaultNumBitsPerByte {
     VarintCoder *c = [[VarintCoder alloc] init];
-    STAssertEquals(c.numBitsPerByte, (uint8_t)7, @"Expected default of 7 usable bits per byte");
+    XCTAssertEqual(c.numBitsPerByte, (uint8_t)7, @"Expected default of 7 usable bits per byte");
 }
 
 @end
