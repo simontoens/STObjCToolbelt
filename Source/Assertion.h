@@ -29,7 +29,7 @@
  * Thrown by abstract method implementations (ie what could happen at compile-time if ObjectiveC had 'abstract').
  */
 @interface AbstractMethodAssertion : Assertion
-+ (instancetype)assertion;
++ (instancetype)forSelector:(SEL)selector;
 - (instancetype)init __unavailable;
 @end
 

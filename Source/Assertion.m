@@ -15,8 +15,11 @@
 @end
 
 @implementation AbstractMethodAssertion
-+ (instancetype)assertion {
-    return [[AbstractMethodAssertion alloc] initWithReason:@"This method is abstract, it must be implemented by a subclass"];
++ (instancetype)forSelector:(SEL)selector {
+    return [[AbstractMethodAssertion alloc] initWithReason:[AbstractMethodAssertion getReason:selector]];
+}
++ (NSString *)getReason:(SEL)selector {
+    return [NSString stringWithFormat:@"The method '%@' is abstract, it must be implemented by a subclass", NSStringFromSelector(selector)];
 }
 @end
 
