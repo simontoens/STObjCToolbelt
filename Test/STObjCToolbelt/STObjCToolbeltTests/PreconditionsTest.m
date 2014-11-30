@@ -9,13 +9,17 @@
 
 @implementation PreconditionsTest
 
-- (void)testFail
+- (void)testAssertNotEmptyWithPopulatedArray
+{
+    [Preconditions assertNotEmpty:@[@"1", @"2", @"3"]];
+}
+
+- (void)testAssertNotEmptyWithEmptyArray
 {
     @try {
-        [Preconditions fail:@"error"];
+        [Preconditions assertNotEmpty:@[]];
         XCTFail(@"Expected exception to be thrown");
-    }
-    @catch (NSException *expected) {
+    } @catch (NSException *expected) {
         XCTAssertTrue(YES, @"expected");
     }
 }

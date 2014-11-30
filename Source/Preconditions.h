@@ -8,7 +8,6 @@
 + (void)assertNotNil:(id)thing message:(NSString *)message;
 + (void)assertNotEmpty:(id)collection;
 + (void)assertNotEmpty:(id)collection message:(NSString *)message;
-+ (void)fail:(NSString *)message;
 + (void)assert:(BOOL)condition message:(NSString *)message;
 
 @end

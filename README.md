@@ -3,6 +3,8 @@ STObjCToolbelt
 
 Various more or less helpful utility classes:
 
+Assertion - Various "assertion like" NSException subtypes: IllegalArgumentAssertion, IllegalStateAssertion etc).
+
 BiDictionary - Maps keys to values and values back to their keys.
 
 MultiDictionary - A one-to-many dictionary.

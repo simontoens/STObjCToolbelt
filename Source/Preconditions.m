@@ -1,5 +1,6 @@
 // @author Simon Toens 01/05/13
 
+#import "Assertion.h"
 #import "Preconditions.h"
 
 @implementation Preconditions
@@ -23,14 +24,9 @@
     }
 }
 
-+ (void)fail:(NSString *)message
-{
-    [Preconditions assert:NO message:message];
-}
-
 + (void)assert:(BOOL)condition message:(NSString *)message {
     if (!condition) {
-        @throw [NSException exceptionWithName:@"InvalidArgumentException" reason:message userInfo:nil];
+        @throw [IllegalArgumentAssertion withReason:message];
     }
 }
 
