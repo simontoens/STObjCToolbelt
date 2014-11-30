@@ -3,7 +3,7 @@
 #import <Foundation/Foundation.h>
 
 /**
- * Abstract base assertion exception.
+ * Abstract base assertion.
  */
 @interface Assertion : NSException
 
@@ -21,3 +21,9 @@
 + (instancetype)withReason:(NSString *)reason;
 - (instancetype)init __unavailable;
 @end
+
+@interface AbstractMethodAssertion : Assertion
++ (instancetype)assertion;
+- (instancetype)init __unavailable;
+@end
+

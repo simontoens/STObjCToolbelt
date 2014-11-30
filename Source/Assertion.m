@@ -17,3 +17,11 @@
 }
 
 @end
+
+@implementation AbstractMethodAssertion
+
++ (instancetype)assertion {
+    return [[AbstractMethodAssertion alloc] initWithReason:@"This method is abstract, it must be implemented by a subclass"];
+}
+
+@end
