@@ -155,7 +155,7 @@ static const short _base64DecodingTable[256] = {
 - (NSString *)toMD5 {    
     unsigned char result[16];
     
-    CC_MD5([self bytes], [self length], result);
+    CC_MD5([self bytes], (CC_LONG)[self length], result);
     
     return [NSString stringWithFormat:
             @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",

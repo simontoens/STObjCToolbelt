@@ -37,7 +37,7 @@
     
     NSUInteger bitsRequired = 0;
         
-    int val = value;
+    NSInteger val = value;
     do {
         val >>= 1;
         bitsRequired += 1;
