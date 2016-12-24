@@ -25,8 +25,8 @@
  *
  * @param data  The bytes to decode, previously encoded using the encode method in this class
  * @param offset  The offset to use when indexing into data
- * @param (return) numBytesDecodedDecoded  The number of bytes that have been decoded
- * @param (return) doneDecoding  Whether the decoding is complete
+ * @param numBytesDecoded  The number of bytes that have been decoded (returned)
+ * @param doneDecoding  Whether the decoding is complete (returned)
  * @return The decoded value, or 0 if the decoding is not done yet.
  */
 - (NSInteger)decode:(NSData *)data 
